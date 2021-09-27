@@ -608,7 +608,7 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void txtgeodataFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtgeodataFocusLost
         // TODO add your handling code here:
-        if(!(txtgeodata.getText().matches("[a-zA-Z0-9,.]+"))) {
+        if(!(txtgeodata.getText().matches("[a-zA-Z0-9,. ]+"))) {
            JOptionPane.showMessageDialog(null, "Location not found. ");
            txtgeodata.setText("");
        } 
@@ -708,9 +708,9 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void txtip_AddressFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtip_AddressFocusLost
         // TODO add your handling code here:
-        if(!(txtip_Address.getText().matches("[0-9]{3}.[0-9]{3}.[0-9}{3}.[0-9]{3}"))) {
+        if(!(txtip_Address.getText().matches("[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}"))) {
             JOptionPane.showMessageDialog(null, "Enter a valid IP Address");
-            //txtip_Address.setText("");
+            txtip_Address.setText("");
         }
     }//GEN-LAST:event_txtip_AddressFocusLost
 

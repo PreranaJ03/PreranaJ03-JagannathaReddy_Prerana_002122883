@@ -28,7 +28,7 @@ public class CreateJPanel extends javax.swing.JPanel {
      * Creates new form CreateJPanel
      */
     CarFleetHistory history;
-    private String availability;
+    String availability;
     public CreateJPanel(CarFleetHistory history) {
         initComponents();
         this.history = history;
@@ -138,6 +138,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         btbSave.setForeground(new java.awt.Color(255, 255, 255));
         btbSave.setText("SAVE");
         btbSave.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btbSave.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btbSaveMouseClicked(evt);
+            }
+        });
         btbSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btbSaveActionPerformed(evt);
@@ -145,13 +150,18 @@ public class CreateJPanel extends javax.swing.JPanel {
         });
 
         comboCarType.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        comboCarType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Sports Car", "ABC", " " }));
+        comboCarType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Sedan", "Coupe", "Sports Car", "Station Wagon", "HatchBack", "Convertible", "Sport-Utility Vehicle", "Minivan", "Pickup Truck", " ", " " }));
+        comboCarType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboCarTypeActionPerformed(evt);
+            }
+        });
 
         comboBrand.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        comboBrand.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Toyota", "Wolksvagen", " " }));
+        comboBrand.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Toyota", "Volkswagen", "Porshe", "Daimler", "Ford", "Honda", "Bridgestone", "Michelin", "Chevrolt", "Mercedes Benz", "BMW", "Subaru", "Nissan", "Lexus", "Audi", " " }));
 
         comboLocation.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        comboLocation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Boston", "New Hamshire", "Vermont", "Amherst", " ", " " }));
+        comboLocation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Amherst", "Arlington", "Auburn", "Berkley", "Berlin", "Bellingham", "Blaclstone", "Boston", "Brookline", "Cambridge", "EastHampton", "Harvard", "NewBury", "Oxford", "Somerville", "Waltham", "Vermont", "Amherst", " ", " " }));
 
         chkboxNo.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         chkboxNo.setText("No");
@@ -169,6 +179,9 @@ public class CreateJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnAutofill.setBackground(new java.awt.Color(0, 0, 0));
+        btnAutofill.setFont(new java.awt.Font("Sylfaen", 1, 16)); // NOI18N
+        btnAutofill.setForeground(new java.awt.Color(255, 255, 255));
         btnAutofill.setText("AUTOFILL");
         btnAutofill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,7 +213,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(comboCarType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(comboBrand, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(comboLocation, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblseats, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -224,8 +237,8 @@ public class CreateJPanel extends javax.swing.JPanel {
                         .addComponent(chkboxNo)
                         .addGap(64, 64, 64))))
             .addComponent(btbSave, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnAutofill, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lblTime, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnAutofill, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,12 +269,11 @@ public class CreateJPanel extends javax.swing.JPanel {
                                 .addGap(14, 14, 14)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(comboBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblavailability)))
+                                    .addComponent(lblavailability)
+                                    .addComponent(lblbrand)))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(chkboxYes, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblbrand))))))
+                                .addComponent(chkboxYes, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbllocation)
@@ -280,7 +292,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addComponent(btnAutofill)
                 .addGap(47, 47, 47)
                 .addComponent(lblTime)
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -300,6 +312,14 @@ public class CreateJPanel extends javax.swing.JPanel {
         String year_manufactured = txtyear_manufactured.getText();
         String maintenance_due = txtmaintenance_due.getText();
         
+        if(chkboxYes.isSelected()){
+            availability = "Yes";
+        } else if(chkboxNo.isSelected()){
+            availability = "No";
+        }else {
+            availability = "No";
+        }
+        
         CarFleet cf = history.addNewCar();
         
         cf.setLisence_no(lisence_no);
@@ -307,55 +327,48 @@ public class CreateJPanel extends javax.swing.JPanel {
         cf.setCar_type(car_type);
         cf.setModel_no(model_no);
         cf.setBrand(brand);
-        cf.setAvailability(availability);
+        //cf.setAvailability(availability);
         cf.setLocation(location);
         cf.setSeats(seats);
         cf.setYear_manufactured(year_manufactured);
         cf.setMaintenance_due(maintenance_due);
         
         
-//        String print = lisence_no + "," + serial_no + "," + car_type + "," + model_no + "," + brand + "," + availability + "," + location + "," + seats + "," + year_manufactured + "," + maintenance_due;
-//        try {
-//            FileWriter csvWriter = new FileWriter("table.csv");
-//            csvWriter.append(print + "\n");
-//            csvWriter.flush();
-//            csvWriter.close();
-//        } catch (IOException ex) {
-//            Logger.getLogger(CreateJPanel.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+         
+        
+        
+            try {
+            FileWriter csvWriter = new FileWriter("table.csv");
+            for(CarFleet c : history.getHistory()){
+                csvWriter.append(c.toCSV() + "\n");
+            }
+            
+            csvWriter.flush();
+            csvWriter.close();
+        } catch (IOException ex) {
+            Logger.getLogger(CreateJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
   
         
         JOptionPane.showMessageDialog(this, "New Car - details added.");
         
         txtlisence_no.setText("");
         txtserial_no.setText("");
-        comboCarType.setToolTipText("");
+        comboCarType.setSelectedItem("Select");
         //txtcar_type.setText("");
         txtmodel_no.setText("");
-        comboBrand.setToolTipText("");
+        comboBrand.setSelectedItem("Select");
         //txtbrand.setText("");
         //txtavailability.setText("");
-        comboLocation.setToolTipText("");
+        comboLocation.setSelectedItem("Select");
         //txtlocation.setText("");
         txtseats.setText("");
         txtyear_manufactured.setText("");
         txtmaintenance_due.setText("");
       
+        chkboxYes.setSelected(false);
+        chkboxNo.setSelected(false);
     }//GEN-LAST:event_btbSaveActionPerformed
-
-    private void chkboxNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkboxNoActionPerformed
-        // TODO add your handling code here:
-        if(chkboxNo.isSelected()) {
-            availability = chkboxNo.getText();
-       }
-    }//GEN-LAST:event_chkboxNoActionPerformed
-
-    private void chkboxYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkboxYesActionPerformed
-        // TODO add your handling code here:
-        if(chkboxYes.isSelected()) {
-            availability = chkboxYes.getText();
-       }
-    }//GEN-LAST:event_chkboxYesActionPerformed
 
     private void btnAutofillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAutofillActionPerformed
         // TODO add your handling code here:
@@ -382,6 +395,28 @@ public class CreateJPanel extends javax.swing.JPanel {
             Logger.getLogger(CreateJPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAutofillActionPerformed
+
+    private void btbSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btbSaveMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btbSaveMouseClicked
+
+    private void comboCarTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCarTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboCarTypeActionPerformed
+
+    private void chkboxYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkboxYesActionPerformed
+        // TODO add your handling code here:
+        if(chkboxYes.isSelected()== true) {
+            availability = "Yes";
+        }
+    }//GEN-LAST:event_chkboxYesActionPerformed
+
+    private void chkboxNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkboxNoActionPerformed
+        // TODO add your handling code here:
+        if(chkboxNo.isSelected() == true) {
+            availability = "No";
+        }
+    }//GEN-LAST:event_chkboxNoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

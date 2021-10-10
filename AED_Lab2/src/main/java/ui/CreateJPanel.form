@@ -42,7 +42,7 @@
                   <Component id="comboBrand" alignment="0" max="32767" attributes="0"/>
                   <Component id="comboLocation" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="210" max="32767" attributes="0"/>
+              <EmptySpace pref="102" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lblseats" min="-2" pref="92" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -73,8 +73,8 @@
               </Group>
           </Group>
           <Component id="btbSave" alignment="1" max="32767" attributes="0"/>
-          <Component id="btnAutofill" alignment="0" max="32767" attributes="0"/>
           <Component id="lblTime" alignment="1" max="32767" attributes="0"/>
+          <Component id="btnAutofill" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -111,14 +111,12 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="comboBrand" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblavailability" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblbrand" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="chkboxYes" min="-2" pref="20" max="-2" attributes="0"/>
-                                  <Component id="lblbrand" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="chkboxYes" min="-2" pref="20" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -143,7 +141,7 @@
               <Component id="btnAutofill" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Component id="lblTime" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="138" max="32767" attributes="0"/>
+              <EmptySpace pref="136" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -325,6 +323,7 @@
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btbSaveMouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btbSaveActionPerformed"/>
       </Events>
     </Component>
@@ -334,14 +333,25 @@
           <Font name="Tahoma" size="10" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
+          <StringArray count="12">
             <StringItem index="0" value="Select"/>
-            <StringItem index="1" value="Sports Car"/>
-            <StringItem index="2" value="ABC"/>
-            <StringItem index="3" value=" "/>
+            <StringItem index="1" value="Sedan"/>
+            <StringItem index="2" value="Coupe"/>
+            <StringItem index="3" value="Sports Car"/>
+            <StringItem index="4" value="Station Wagon"/>
+            <StringItem index="5" value="HatchBack"/>
+            <StringItem index="6" value="Convertible"/>
+            <StringItem index="7" value="Sport-Utility Vehicle"/>
+            <StringItem index="8" value="Minivan"/>
+            <StringItem index="9" value="Pickup Truck"/>
+            <StringItem index="10" value=" "/>
+            <StringItem index="11" value=" "/>
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboCarTypeActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -352,11 +362,24 @@
           <Font name="Tahoma" size="10" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
+          <StringArray count="17">
             <StringItem index="0" value="Select"/>
             <StringItem index="1" value="Toyota"/>
-            <StringItem index="2" value="Wolksvagen"/>
-            <StringItem index="3" value=" "/>
+            <StringItem index="2" value="Volkswagen"/>
+            <StringItem index="3" value="Porshe"/>
+            <StringItem index="4" value="Daimler"/>
+            <StringItem index="5" value="Ford"/>
+            <StringItem index="6" value="Honda"/>
+            <StringItem index="7" value="Bridgestone"/>
+            <StringItem index="8" value="Michelin"/>
+            <StringItem index="9" value="Chevrolt"/>
+            <StringItem index="10" value="Mercedes Benz"/>
+            <StringItem index="11" value="BMW"/>
+            <StringItem index="12" value="Subaru"/>
+            <StringItem index="13" value="Nissan"/>
+            <StringItem index="14" value="Lexus"/>
+            <StringItem index="15" value="Audi"/>
+            <StringItem index="16" value=" "/>
           </StringArray>
         </Property>
       </Properties>
@@ -370,14 +393,28 @@
           <Font name="Tahoma" size="10" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="7">
+          <StringArray count="21">
             <StringItem index="0" value="Select"/>
-            <StringItem index="1" value="Boston"/>
-            <StringItem index="2" value="New Hamshire"/>
-            <StringItem index="3" value="Vermont"/>
-            <StringItem index="4" value="Amherst"/>
-            <StringItem index="5" value=" "/>
-            <StringItem index="6" value=" "/>
+            <StringItem index="1" value="Amherst"/>
+            <StringItem index="2" value="Arlington"/>
+            <StringItem index="3" value="Auburn"/>
+            <StringItem index="4" value="Berkley"/>
+            <StringItem index="5" value="Berlin"/>
+            <StringItem index="6" value="Bellingham"/>
+            <StringItem index="7" value="Blaclstone"/>
+            <StringItem index="8" value="Boston"/>
+            <StringItem index="9" value="Brookline"/>
+            <StringItem index="10" value="Cambridge"/>
+            <StringItem index="11" value="EastHampton"/>
+            <StringItem index="12" value="Harvard"/>
+            <StringItem index="13" value="NewBury"/>
+            <StringItem index="14" value="Oxford"/>
+            <StringItem index="15" value="Somerville"/>
+            <StringItem index="16" value="Waltham"/>
+            <StringItem index="17" value="Vermont"/>
+            <StringItem index="18" value="Amherst"/>
+            <StringItem index="19" value=" "/>
+            <StringItem index="20" value=" "/>
           </StringArray>
         </Property>
       </Properties>
@@ -409,6 +446,15 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAutofill">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Sylfaen" size="16" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="AUTOFILL"/>
       </Properties>
       <Events>

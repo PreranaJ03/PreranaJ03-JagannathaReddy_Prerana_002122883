@@ -36,8 +36,13 @@ public class CarFleet {
       
     }
 
+    public String toCSV(){
+        String print = lisence_no + "," + serial_no + "," + car_type + "," + model_no + "," + brand + "," + availability + "," + location + "," + seats + "," + year_manufactured + "," + maintenance_due;
+       return print;
+    }
+    
     CarFleet() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getLisence_no() {

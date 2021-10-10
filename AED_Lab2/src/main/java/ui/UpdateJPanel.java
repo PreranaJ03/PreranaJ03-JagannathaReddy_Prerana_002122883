@@ -5,6 +5,10 @@
  */
 package ui;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -416,6 +420,43 @@ public class UpdateJPanel extends javax.swing.JPanel {
         txtseats.setText(String.valueOf(selectedCars.getSeats()));
         txtyear_manufactured.setText((selectedCars.getYear_manufactured()));
         txtmaintenance_due.setText((selectedCars.getMaintenance_due()));
+        
+        //Get the serial number that was modified
+        //Look for that carFleet object in carfleethistory
+        //make the modification
+        
+        for(CarFleet c : history.getHistory()){
+            if(c.getSerial_no().equals(txtserial_no.getText().toString())){
+                //make all the modifications here
+                c.setLisence_no(txtlisence_no.getText().toString());
+                c.setSerial_no(txtserial_no.getText().toString());
+                c.setCar_type(txtcar_type.getText().toString());
+                c.setModel_no(Integer.parseInt(txtmodel_no.getText().toString()));
+                c.setBrand(txtbrand.getText().toString());
+                c.setAvailability(txtavailability.getText().toString());
+                c.setLocation(txtlocation.getText().toString());
+                c.setSeats(Integer.parseInt(txtseats.getText().toString()));
+                c.setYear_manufactured(txtyear_manufactured.getText().toString());
+                c.setMaintenance_due(txtmaintenance_due.getText().toString());
+                
+                
+            }
+        }
+        
+        
+        //history.getHistory().remove(c);
+        
+         try {
+            FileWriter csvWriter = new FileWriter("table.csv");
+            for(CarFleet c : history.getHistory()){
+                csvWriter.append(c.toCSV() + "\n");
+            }
+            
+            csvWriter.flush();
+            csvWriter.close();
+        } catch (IOException ex) {
+            Logger.getLogger(CreateJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnUpdate1ActionPerformed
 
     private void tblCarFleetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCarFleetMouseClicked

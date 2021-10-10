@@ -21,6 +21,25 @@ public class CarFleet {
     private String year_manufactured;
     private String maintenance_due;  
 
+    public CarFleet(String[] data) {
+      lisence_no = data[0];
+      serial_no = data[1];
+      car_type = data[2];
+      model_no = Integer.parseInt(data[3]);
+      brand = data[4];
+      availability = data[5];
+      location = data[6];
+      seats = Integer.parseInt(data[7]);
+      year_manufactured = data[8];
+      maintenance_due = data[9];
+      
+      
+    }
+
+    CarFleet() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getLisence_no() {
         return lisence_no;
     }

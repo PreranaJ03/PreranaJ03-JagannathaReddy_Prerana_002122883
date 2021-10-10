@@ -5,6 +5,15 @@
  */
 package ui;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.CarFleet;
 import model.CarFleetHistory;
@@ -23,6 +32,11 @@ public class CreateJPanel extends javax.swing.JPanel {
     public CreateJPanel(CarFleetHistory history) {
         initComponents();
         this.history = history;
+        
+        File f = new File("table.csv");
+        long lastModified = f.lastModified();
+        Date date = new Date(lastModified);
+        lblTime.setText("Table was last updated on: " + date.toString());
     }
 
     /**
@@ -57,6 +71,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         comboLocation = new javax.swing.JComboBox<>();
         chkboxNo = new javax.swing.JCheckBox();
         chkboxYes = new javax.swing.JCheckBox();
+        btnAutofill = new javax.swing.JButton();
+        lblTime = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 204));
         setPreferredSize(new java.awt.Dimension(600, 600));
@@ -153,6 +169,17 @@ public class CreateJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnAutofill.setText("AUTOFILL");
+        btnAutofill.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAutofillActionPerformed(evt);
+            }
+        });
+
+        lblTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTime.setText("jLabel1");
+        lblTime.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -173,7 +200,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(comboCarType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(comboBrand, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(comboLocation, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblseats, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -197,6 +224,8 @@ public class CreateJPanel extends javax.swing.JPanel {
                         .addComponent(chkboxNo)
                         .addGap(64, 64, 64))))
             .addComponent(btbSave, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnAutofill, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblTime, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,7 +276,11 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(txtmaintenance_due, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addComponent(btbSave)
-                .addContainerGap(270, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addComponent(btnAutofill)
+                .addGap(47, 47, 47)
+                .addComponent(lblTime)
+                .addContainerGap(138, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -279,6 +312,18 @@ public class CreateJPanel extends javax.swing.JPanel {
         cf.setSeats(seats);
         cf.setYear_manufactured(year_manufactured);
         cf.setMaintenance_due(maintenance_due);
+        
+        
+//        String print = lisence_no + "," + serial_no + "," + car_type + "," + model_no + "," + brand + "," + availability + "," + location + "," + seats + "," + year_manufactured + "," + maintenance_due;
+//        try {
+//            FileWriter csvWriter = new FileWriter("table.csv");
+//            csvWriter.append(print + "\n");
+//            csvWriter.flush();
+//            csvWriter.close();
+//        } catch (IOException ex) {
+//            Logger.getLogger(CreateJPanel.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+  
         
         JOptionPane.showMessageDialog(this, "New Car - details added.");
         
@@ -312,14 +357,42 @@ public class CreateJPanel extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_chkboxYesActionPerformed
 
+    private void btnAutofillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAutofillActionPerformed
+        // TODO add your handling code here:
+        String row;
+        BufferedReader csvReader = null;
+        try {
+            csvReader = new BufferedReader(new FileReader("table.csv"));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(CreateJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            while ((row = csvReader.readLine()) != null) {
+                String[] data = row.split(",");
+                CarFleet temp = new CarFleet(data);
+                history.getHistory().add(temp);
+                
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CreateJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            csvReader.close();
+        } catch (IOException ex) {
+            Logger.getLogger(CreateJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnAutofillActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btbSave;
+    private javax.swing.JButton btnAutofill;
     private javax.swing.JCheckBox chkboxNo;
     private javax.swing.JCheckBox chkboxYes;
     private javax.swing.JComboBox<String> comboBrand;
     private javax.swing.JComboBox<String> comboCarType;
     private javax.swing.JComboBox<String> comboLocation;
+    private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblavailability;
     private javax.swing.JLabel lblbrand;

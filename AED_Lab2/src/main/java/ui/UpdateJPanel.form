@@ -173,19 +173,12 @@
                       <Component id="lblserial_no" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="txtserial_no" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="txtcar_type" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblcar_type" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblmodel_no" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtmodel_no" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblcar_type" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblmodel_no" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtmodel_no" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtcar_type" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -339,6 +332,9 @@
               <Font name="Tahoma" size="10" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtlisence_noFocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtserial_no">
           <Properties>
@@ -346,6 +342,9 @@
               <Font name="Tahoma" size="10" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtserial_noFocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtcar_type">
           <Properties>
@@ -360,6 +359,9 @@
               <Font name="Tahoma" size="10" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtmodel_noFocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtbrand">
           <Properties>
@@ -381,6 +383,9 @@
               <Font name="Tahoma" size="10" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtseatsFocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtyear_manufactured">
           <Properties>
@@ -388,6 +393,9 @@
               <Font name="Tahoma" size="10" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtyear_manufacturedFocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtmaintenance_due">
           <Properties>
@@ -424,6 +432,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="SEARCH"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

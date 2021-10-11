@@ -135,20 +135,45 @@ public class UpdateJPanel extends javax.swing.JPanel {
         lblmaintenance_due.setText("Maintenance Due :");
 
         txtlisence_no.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        txtlisence_no.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtlisence_noFocusLost(evt);
+            }
+        });
 
         txtserial_no.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        txtserial_no.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtserial_noFocusLost(evt);
+            }
+        });
 
         txtcar_type.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         txtmodel_no.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        txtmodel_no.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtmodel_noFocusLost(evt);
+            }
+        });
 
         txtbrand.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         txtlocation.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         txtseats.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        txtseats.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtseatsFocusLost(evt);
+            }
+        });
 
         txtyear_manufactured.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        txtyear_manufactured.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtyear_manufacturedFocusLost(evt);
+            }
+        });
 
         txtmaintenance_due.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
@@ -167,6 +192,11 @@ public class UpdateJPanel extends javax.swing.JPanel {
         btnSearch.setBackground(new java.awt.Color(255, 204, 204));
         btnSearch.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
         btnSearch.setText("SEARCH");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -227,16 +257,12 @@ public class UpdateJPanel extends javax.swing.JPanel {
                         .addComponent(txtlisence_no, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblserial_no)
                     .addComponent(txtserial_no, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtcar_type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblcar_type)
-                            .addComponent(lblmodel_no)
-                            .addComponent(txtmodel_no, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblcar_type)
+                    .addComponent(lblmodel_no)
+                    .addComponent(txtmodel_no, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtcar_type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -376,6 +402,23 @@ public class UpdateJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this, "Selected Car row deleted.");
         
         populateTable();
+        
+//        for(CarFleet c : history.getHistory()){
+//        history.getHistory().remove(c);
+//        
+//         try {
+//            FileWriter csvWriter = new FileWriter("table.csv");
+//            for(CarFleet c : history.getHistory()){
+//                csvWriter.append(c.toCSV() + "\n");
+////            }
+//            
+//            csvWriter.flush();
+//            csvWriter.close();
+//        } catch (IOException ex) {
+//            Logger.getLogger(CreateJPanel.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        }
+//    
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdate1ActionPerformed
@@ -421,9 +464,6 @@ public class UpdateJPanel extends javax.swing.JPanel {
         txtyear_manufactured.setText((selectedCars.getYear_manufactured()));
         txtmaintenance_due.setText((selectedCars.getMaintenance_due()));
         
-        //Get the serial number that was modified
-        //Look for that carFleet object in carfleethistory
-        //make the modification
         
         for(CarFleet c : history.getHistory()){
             if(c.getSerial_no().equals(txtserial_no.getText().toString())){
@@ -490,6 +530,56 @@ public class UpdateJPanel extends javax.swing.JPanel {
         tblCarFleet.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter(txtSearch.getText().trim()));
     }//GEN-LAST:event_txtSearchKeyReleased
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void txtlisence_noFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtlisence_noFocusLost
+        // TODO add your handling code here:
+        if(txtlisence_no.getText().trim().length() != 0) {
+           if(!(txtlisence_no.getText().matches("[A-Z]{4}[0-9]{3}"))) {
+           JOptionPane.showMessageDialog(null, "Invalid Lisence Number");
+           txtlisence_no.setText("");
+       }
+        }
+    }//GEN-LAST:event_txtlisence_noFocusLost
+
+    private void txtserial_noFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtserial_noFocusLost
+        // TODO add your handling code here:
+        if(txtserial_no.getText().trim().length() != 0) {
+           if(!(txtserial_no.getText().matches("[0-9]{3}[A-Z]{3}[0-9]{3}"))) {
+           JOptionPane.showMessageDialog(null, "Invalid Serial Number");
+           txtserial_no.setText("");
+       } 
+       }
+    }//GEN-LAST:event_txtserial_noFocusLost
+
+    private void txtmodel_noFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtmodel_noFocusLost
+        // TODO add your handling code here:
+        if(!(txtmodel_no.getText().matches("[0-9]{5}"))){
+            JOptionPane.showMessageDialog(null, "Invalid input.Enter a 5 digit Model Number");
+            txtmodel_no.setText("");
+        }
+    }//GEN-LAST:event_txtmodel_noFocusLost
+
+    private void txtseatsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtseatsFocusLost
+        // TODO add your handling code here:
+        if(!(txtseats.getText().matches("[2-9]"))){
+            JOptionPane.showMessageDialog(null, "Invalid input.Enter number of seats");
+            txtseats.setText("");
+        }
+    }//GEN-LAST:event_txtseatsFocusLost
+
+    private void txtyear_manufacturedFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtyear_manufacturedFocusLost
+        // TODO add your handling code here:
+        if(txtserial_no.getText().trim().length() != 0) {
+           if(!(txtyear_manufactured.getText().matches("[0-9]{4}"))) {
+           JOptionPane.showMessageDialog(null, "Invalid input.");
+           txtyear_manufactured.setText("");
+       } 
+       }
+    }//GEN-LAST:event_txtyear_manufacturedFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

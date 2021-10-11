@@ -64,7 +64,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtmodel_no = new javax.swing.JTextField();
         txtseats = new javax.swing.JTextField();
         txtyear_manufactured = new javax.swing.JTextField();
-        txtmaintenance_due = new javax.swing.JTextField();
         btbSave = new javax.swing.JButton();
         comboCarType = new javax.swing.JComboBox<>();
         comboBrand = new javax.swing.JComboBox<>();
@@ -73,6 +72,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         chkboxYes = new javax.swing.JCheckBox();
         btnAutofill = new javax.swing.JButton();
         lblTime = new javax.swing.JLabel();
+        combomaintenance_due = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 204));
         setPreferredSize(new java.awt.Dimension(600, 600));
@@ -122,16 +122,39 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblmaintenance_due.setText("Maintenance Due :");
 
         txtlisence_no.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        txtlisence_no.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtlisence_noFocusLost(evt);
+            }
+        });
 
         txtserial_no.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        txtserial_no.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtserial_noFocusLost(evt);
+            }
+        });
 
         txtmodel_no.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        txtmodel_no.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtmodel_noFocusLost(evt);
+            }
+        });
 
         txtseats.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        txtseats.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtseatsFocusLost(evt);
+            }
+        });
 
         txtyear_manufactured.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-
-        txtmaintenance_due.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        txtyear_manufactured.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtyear_manufacturedFocusLost(evt);
+            }
+        });
 
         btbSave.setBackground(new java.awt.Color(0, 0, 0));
         btbSave.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
@@ -193,6 +216,14 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblTime.setText("jLabel1");
         lblTime.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        combomaintenance_due.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        combomaintenance_due.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Yes", "No", " " }));
+        combomaintenance_due.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combomaintenance_dueActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -228,7 +259,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                             .addComponent(txtserial_no, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtmodel_no, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtseats, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtmaintenance_due, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(combomaintenance_due, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(22, 22, 22))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(51, 51, 51)
@@ -285,7 +316,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(lblyear_manufactured)
                     .addComponent(txtyear_manufactured, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblmaintenance_due)
-                    .addComponent(txtmaintenance_due, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(combomaintenance_due, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addComponent(btbSave)
                 .addGap(36, 36, 36)
@@ -310,7 +341,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         //String location = txtlocation.getText();
         int seats = Integer.parseInt(txtseats.getText());
         String year_manufactured = txtyear_manufactured.getText();
-        String maintenance_due = txtmaintenance_due.getText();
+        String maintenance_due = combomaintenance_due.getSelectedItem().toString();
         
         if(chkboxYes.isSelected()){
             availability = "Yes";
@@ -327,7 +358,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         cf.setCar_type(car_type);
         cf.setModel_no(model_no);
         cf.setBrand(brand);
-        //cf.setAvailability(availability);
+        cf.setAvailability(availability);
         cf.setLocation(location);
         cf.setSeats(seats);
         cf.setYear_manufactured(year_manufactured);
@@ -364,7 +395,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         //txtlocation.setText("");
         txtseats.setText("");
         txtyear_manufactured.setText("");
-        txtmaintenance_due.setText("");
+        //txtmaintenance_due.setText("");
+        combomaintenance_due.setSelectedItem("Select");
       
         chkboxYes.setSelected(false);
         chkboxNo.setSelected(false);
@@ -406,17 +438,69 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void chkboxYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkboxYesActionPerformed
         // TODO add your handling code here:
-        if(chkboxYes.isSelected()== true) {
-            availability = "Yes";
+        if(chkboxYes.isSelected()) {
+            availability = chkboxYes.getText();
         }
     }//GEN-LAST:event_chkboxYesActionPerformed
 
     private void chkboxNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkboxNoActionPerformed
         // TODO add your handling code here:
-        if(chkboxNo.isSelected() == true) {
-            availability = "No";
+        if(chkboxNo.isSelected()) {
+            availability = chkboxNo.getText();
         }
     }//GEN-LAST:event_chkboxNoActionPerformed
+
+    private void combomaintenance_dueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combomaintenance_dueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combomaintenance_dueActionPerformed
+
+    private void txtlisence_noFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtlisence_noFocusLost
+        // TODO add your handling code here:
+        if(txtlisence_no.getText().trim().length() != 0) {
+           if(!(txtlisence_no.getText().matches("[A-Z]{4}[0-9]{3}"))) {
+           JOptionPane.showMessageDialog(null, "Invalid Lisence Number");
+           txtlisence_no.setText("");
+       } 
+       }
+        
+    }//GEN-LAST:event_txtlisence_noFocusLost
+
+    private void txtserial_noFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtserial_noFocusLost
+        // TODO add your handling code here:
+        if(txtserial_no.getText().trim().length() != 0) {
+           if(!(txtserial_no.getText().matches("[0-9]{3}[A-Z]{3}[0-9]{3}"))) {
+           JOptionPane.showMessageDialog(null, "Invalid Serial Number");
+           txtserial_no.setText("");
+       } 
+       }
+    }//GEN-LAST:event_txtserial_noFocusLost
+
+    private void txtmodel_noFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtmodel_noFocusLost
+        // TODO add your handling code here:
+        if(!(txtmodel_no.getText().matches("[0-9]{5}"))){
+            JOptionPane.showMessageDialog(null, "Invalid input.Enter a 5 digit Model Number");
+            txtmodel_no.setText("");
+        }
+    }//GEN-LAST:event_txtmodel_noFocusLost
+
+    private void txtyear_manufacturedFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtyear_manufacturedFocusLost
+        // TODO add your handling code here:
+        if(txtserial_no.getText().trim().length() != 0) {
+           if(!(txtyear_manufactured.getText().matches("[0-9]{4}"))) {
+           JOptionPane.showMessageDialog(null, "Invalid input.");
+           txtyear_manufactured.setText("");
+       } 
+       }
+    }//GEN-LAST:event_txtyear_manufacturedFocusLost
+
+    private void txtseatsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtseatsFocusLost
+        // TODO add your handling code here:
+        if(!(txtseats.getText().matches("[2-9]"))){
+            JOptionPane.showMessageDialog(null, "Invalid input.Enter number of seats");
+            txtseats.setText("");
+        }
+        
+    }//GEN-LAST:event_txtseatsFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -427,6 +511,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> comboBrand;
     private javax.swing.JComboBox<String> comboCarType;
     private javax.swing.JComboBox<String> comboLocation;
+    private javax.swing.JComboBox<String> combomaintenance_due;
     private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblavailability;
@@ -440,7 +525,6 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblserial_no;
     private javax.swing.JLabel lblyear_manufactured;
     private javax.swing.JTextField txtlisence_no;
-    private javax.swing.JTextField txtmaintenance_due;
     private javax.swing.JTextField txtmodel_no;
     private javax.swing.JTextField txtseats;
     private javax.swing.JTextField txtserial_no;

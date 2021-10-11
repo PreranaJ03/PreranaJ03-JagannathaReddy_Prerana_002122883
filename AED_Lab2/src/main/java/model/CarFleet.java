@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.Date;
+
 /**
  *
  * @author prerana
@@ -19,7 +21,9 @@ public class CarFleet {
     private String location;
     private int seats;
     private String year_manufactured;
-    private String maintenance_due;  
+    private String maintenance_due;
+    //private Date date;
+    
 
     public CarFleet(String[] data) {
       lisence_no = data[0];

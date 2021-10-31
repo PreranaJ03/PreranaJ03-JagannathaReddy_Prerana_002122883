@@ -38,7 +38,7 @@ public class Display extends javax.swing.JPanel {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("DISPLAY");
 
-        comboAge.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AGE", "0 - 2", "3 - 39", "40 - 59", "60 - 99", " ", " " }));
+        comboAge.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AGE", "1 - 14", "15 - 39", "40 - 65", "66 - 100", " ", " " }));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -53,7 +53,7 @@ public class Display extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        combocommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "COMMUNITY", "Bay Village", "ChinaTown - Leather District", "Hyde Park", "Mission Hill", "Roxbury", "South End", "West End", " " }));
+        combocommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "COMMUNITY", "Downtown", "Boylston", "Roxbury", " ", " " }));
 
         btnSearch.setText("SEARCH");
 

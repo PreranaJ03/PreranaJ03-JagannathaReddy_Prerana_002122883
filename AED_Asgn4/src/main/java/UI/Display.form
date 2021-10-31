@@ -70,10 +70,10 @@
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="7">
             <StringItem index="0" value="AGE"/>
-            <StringItem index="1" value="0 - 2"/>
-            <StringItem index="2" value="3 - 39"/>
-            <StringItem index="3" value="40 - 59"/>
-            <StringItem index="4" value="60 - 99"/>
+            <StringItem index="1" value="1 - 14"/>
+            <StringItem index="2" value="15 - 39"/>
+            <StringItem index="3" value="40 - 65"/>
+            <StringItem index="4" value="66 - 100"/>
             <StringItem index="5" value=" "/>
             <StringItem index="6" value=" "/>
           </StringArray>
@@ -107,16 +107,13 @@
     <Component class="javax.swing.JComboBox" name="combocommunity">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="9">
+          <StringArray count="6">
             <StringItem index="0" value="COMMUNITY"/>
-            <StringItem index="1" value="Bay Village"/>
-            <StringItem index="2" value="ChinaTown - Leather District"/>
-            <StringItem index="3" value="Hyde Park"/>
-            <StringItem index="4" value="Mission Hill"/>
-            <StringItem index="5" value="Roxbury"/>
-            <StringItem index="6" value="South End"/>
-            <StringItem index="7" value="West End"/>
-            <StringItem index="8" value=" "/>
+            <StringItem index="1" value="Downtown"/>
+            <StringItem index="2" value="Boylston"/>
+            <StringItem index="3" value="Roxbury"/>
+            <StringItem index="4" value=" "/>
+            <StringItem index="5" value=" "/>
           </StringArray>
         </Property>
       </Properties>

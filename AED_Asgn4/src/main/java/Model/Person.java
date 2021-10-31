@@ -15,9 +15,19 @@ public class Person {
     
     private String Unique_ID;
     private String name;
-    private Date DOB;
     private int age;
     private String email_ID;
+    Home home;
+
+    public Person(String Unique_ID, String name, int age, String email_ID, Home home) {
+        this.Unique_ID = Unique_ID;
+        this.name = name;
+        this.age = age;
+        this.email_ID = email_ID;
+        this.home = home;
+    }
+    
+    
 
     public String getUnique_ID() {
         return Unique_ID;
@@ -35,13 +45,6 @@ public class Person {
         this.name = name;
     }
 
-    public Date getDOB() {
-        return DOB;
-    }
-
-    public void setDOB(Date DOB) {
-        this.DOB = DOB;
-    }
 
     public int getAge() {
         return age;
@@ -58,8 +61,15 @@ public class Person {
     public void setEmail_ID(String email_ID) {
         this.email_ID = email_ID;
     } 
-   
-    
+
+    public Home getHome() {
+        return home;
+    }
+
+    public void setHome(Home home) {
+        this.home = home;
+    }
+      
 
         
 }

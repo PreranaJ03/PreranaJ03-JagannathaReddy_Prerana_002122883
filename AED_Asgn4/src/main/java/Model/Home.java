@@ -13,14 +13,12 @@ public class Home {
     
     private String Apt_number;
     private String Apt_Name;
-    private String Street;
-    //private String city;
-    //private String State;
-    private String Postal_Code;
     Community community;
     
-    public Home() {
-        
+    public Home(String Apt_number, String Apt_Name, Community community) {
+        this.Apt_number = Apt_number;
+        this.Apt_Name = Apt_Name;
+        this.community = community;        
     }
 
     public String getApt_Name() {
@@ -48,38 +46,5 @@ public class Home {
         this.Apt_number = Apt_number;
     }
 
-    public String getStreet() {
-        return Street;
-    }
-
-    public void setStreet(String Street) {
-        this.Street = Street;
-    }
-
-//    public String getCity() {
-//        return city;
-//    }
-//
-//    public void setCity(String city) {
-//        this.city = city;
-//    }
-//
-//    public String getState() {
-//        return State;
-//    }
-//
-//    public void setState(String State) {
-//        this.State = State;
-//    }
-
-    public String getPostal_Code() {
-        return Postal_Code;
-    }
-
-    public void setPostal_Code(String Postal_Code) {
-        this.Postal_Code = Postal_Code;
-    }
-    
-    
-    
+        
 }

@@ -12,14 +12,21 @@ import java.util.Date;
  * @author prerana
  */
 public class Encounter {
-    private Date dateofvisit;
+    private String dateofvisit;
     VitalSigns vitals;
 
-    public Date getDateofvisit() {
+    public Encounter(String dateofvisit, VitalSigns vitals) {
+        this.dateofvisit = dateofvisit;
+        this.vitals = vitals;
+    }
+    
+    
+
+    public String getDateofvisit() {
         return dateofvisit;
     }
 
-    public void setDateofvisit(Date dateofvisit) {
+    public void setDateofvisit(String dateofvisit) {
         this.dateofvisit = dateofvisit;
     }
 

@@ -5,17 +5,24 @@
  */
 package UI;
 
+import Model.Patient;
+import Model.System;
+
 /**
  *
  * @author prerana
  */
-public class Encounter extends javax.swing.JPanel {
+public class EncounterPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form Encounter
      */
-    public Encounter() {
+    
+    System sys;
+    public EncounterPanel(System sys) {
         initComponents();
+        
+        this.sys = sys;
     }
 
     /**
@@ -41,7 +48,6 @@ public class Encounter extends javax.swing.JPanel {
         lbldateofvisit = new javax.swing.JLabel();
         txtdateofvisit = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
 
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("ENCOUNTER MANAGEMENT ");
@@ -65,8 +71,11 @@ public class Encounter extends javax.swing.JPanel {
         lbldateofvisit.setText("Date of Visit :");
 
         btnAdd.setText("ADD");
-
-        btnDelete.setText("DELETE");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -74,7 +83,7 @@ public class Encounter extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(287, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(lblbodytemp, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
@@ -91,13 +100,11 @@ public class Encounter extends javax.swing.JPanel {
                     .addComponent(txtpid, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
                     .addComponent(txtbloodpressure)
                     .addComponent(txtdateofvisit))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 211, Short.MAX_VALUE)
+                .addContainerGap(288, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(477, 477, 477)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84)
-                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(557, 557, 557))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,11 +134,9 @@ public class Encounter extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbldateofvisit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtdateofvisit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(207, 207, 207))
+                .addGap(53, 53, 53)
+                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(246, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -139,10 +144,18 @@ public class Encounter extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtresprateActionPerformed
 
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+        
+        for(Patient p : sys.getPatientdir().getListofpatients()) {
+            if(p)
+            
+        }
+    }//GEN-LAST:event_btnAddActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnDelete;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblbloodpressure;
     private javax.swing.JLabel lblbodytemp;

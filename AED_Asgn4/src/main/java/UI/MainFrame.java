@@ -11,6 +11,7 @@ import Model.PersonDirectory;
 import java.util.List;
 import Model.System;
 import Model.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -152,7 +153,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void lblEncounterMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblEncounterMActionPerformed
         // TODO add your handling code here:
-        Encounter encounterPanel = new Encounter();
+        EncounterPanel encounterPanel = new EncounterPanel();
         splitPane.setRightComponent(encounterPanel);
     }//GEN-LAST:event_lblEncounterMActionPerformed
 
@@ -199,18 +200,220 @@ public class MainFrame extends javax.swing.JFrame {
 
     
     void instantiatevalues() {
-        sys.setPersondir(new PersonDirectory());
-        sys.setPatientdir(new PatientDirectory());
+//        sys.setPersondir(new PersonDirectory());
+//        sys.setPatientdir(new PatientDirectory());
+//        
+//
+//        List<Person> persons = sys.getPersondir().getListofpersons();
+//        List<Patient> patients = sys.getPatientdir().getListofpatients();
+        
+        List<Patient> patients = new ArrayList<>();
+        List<Person> persons = new ArrayList<>();
+
+        City boston = new City("Boston");
+
+        Community Downtown = new Community("Downtown");
+        Community Boylston = new Community("Boylston");
+        Community Roxbury = new Community("Roxbury");
+
+        Downtown.setCity(boston);
+        Roxbury.setCity(boston);      
+     
+        Boylston.setCity(boston);
+
+        boston.getCommunities().add(Downtown);
+        boston.getCommunities().add(Boylston);
+        boston.getCommunities().add(Roxbury);
         
 
-        List<Person> persons = sys.getPersondir().getListofpersons();
-        List<Patient> patients = sys.getPatientdir().getListofpatients();
+        persons.add(new Person("R101","Prer",23,"prer@gmail.com",new Home("1102","JVUE", Downtown)));
+        persons.add(new Person("R102","John",34,"john@gmail.com",new Home("123","Longwood", Boylston)));
+        persons.add(new Person("R103","Joe",40,"joe@gmail.com",new Home("1458","JVUE", Boylston)));
+        persons.add(new Person("R104","Jacob",17,"jacob@gmail.com",new Home("3452","Longwood", Downtown)));
+        persons.add(new Person("R105","Bobby",60,"bobby@gmail.com",new Home("1458","JVUE", Roxbury)));
+        persons.add(new Person("R106","Brown",02,"brown@gmail.com",new Home("0986","Mission Main", Boylston)));
+        persons.add(new Person("R107","Danny",50,"danny@gmail.com",new Home("0987","Huntington", Downtown)));
+        persons.add(new Person("R108","Davis",26,"davis@gmail.com",new Home("1780","Longwood", Boylston)));
+        persons.add(new Person("R109","Daisy",23,"daisy@gmail.com",new Home("130","Davis", Roxbury)));
+        persons.add(new Person("R110","Paige",39,"paige@gmail.com",new Home("12","JVUE", Boylston)));
+        persons.add(new Person("R111","Vaibhav",98,"vaibhav@gmail.com",new Home("1104","Huntington", Roxbury)));
+        persons.add(new Person("R112","Varun",12,"varun@gmail.com",new Home("110","Davis", Downtown)));
+        persons.add(new Person("R113","Rexi",78,"rexi@gmail.com",new Home("1302","Longwood", Boylston)));
+        persons.add(new Person("R114","Madison",10,"madison@gmail.com",new Home("1872","JVUE", Downtown)));
+        persons.add(new Person("R115","Peter",55,"peter@gmail.com",new Home("1332","JVUE", Roxbury)));
+        persons.add(new Person("R116","Faraz",88,"faraz@gmail.com",new Home("2352","JVUE", Downtown)));
+        persons.add(new Person("R117","Loki",13,"loki@gmail.com",new Home("1999","Pheonix", Boylston)));
+        persons.add(new Person("R118","Thor",23,"thor@gmail.com",new Home("1098","Huntington", Roxbury)));
+        persons.add(new Person("R119","Williams",63,"williams@gmail.com",new Home("1092","Davis", Downtown)));
+        persons.add(new Person("R120","Aditya",29,"aditya@gmail.com",new Home("908","Pheonix", Boylston)));
+        persons.add(new Person("R121","Sana",15,"sana@gmail.com",new Home("2340","Huntington", Roxbury)));
+        persons.add(new Person("R122","Emily",27,"emily@gmail.com",new Home("870","Pheonix", Boylston)));
+        persons.add(new Person("R123","Hannah",43,"hannah@gmail.com",new Home("1234","JVUE", Downtown)));
+        persons.add(new Person("R124","Bryce",03,"bryce@gmail.com",new Home("6543","Davis", Boylston)));
+        persons.add(new Person("R125","Justin",73,"justin@gmail.com",new Home("564","Huntington", Downtown)));
+        persons.add(new Person("R126","Clay",22,"clay@gmail.com",new Home("777","Pheonix", Roxbury)));
+        persons.add(new Person("R127","Erica",49,"erica@gmail.com",new Home("666","Davis", Boylston)));
+        persons.add(new Person("R128","Sandy",93,"sandy@gmail.com",new Home("10","Pheonix", Downtown)));
         
+        Patient p;
+        VitalSigns v = null;
 
-        persons.add(new Person("R101","Prer","03-06-1998","23","prer@gmail.com",new Home("1102","JVUE","75 St Alphonsus", "Boston")));
-        persons.add(new Person("Doe",new Home("10 davis","Brokline","Boston"), "03-07-1997", "5346547687", "sdsdssdsd@gmail.com", "12346"));
-        persons.add(new Person("Mack",new Home("11 davis","Brokline","Boston"), "12-08-1985", "7564787654", "sdsergdfgh@gmail.com", "12347"));
-        persons.add(new PersonPanel("Jack",new Home("11 davis","Brokline","Boston"), "01-01-1957", "0987465376", "sdsgsrfdh@gmail.com", "12348"));
+        p = new Patient("R101","Prer", 1, "Richard", "A","No");
+        v = new VitalSigns(98.6, 87, 15, 100, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("28-09-2021", v));
+        v = new VitalSigns(99.1, 90, 12, 90, 60);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("21-07-2021", v));
+        v = new VitalSigns(99.0, 75, 13, 120, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("18-05-2021", v));        
+        patients.add(p);
+        
+        p = new Patient("R103","Joe", 3, "Gupta", "AB","Yes");
+        v = new VitalSigns(98.6, 87, 15, 100, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("28-09-2019", v));
+        v = new VitalSigns(99.1, 90, 12, 90, 60);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("21-07-2020", v));
+        v = new VitalSigns(100.0, 55, 19, 80, 60);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("18-05-2021", v));        
+        patients.add(p);
+        
+        p = new Patient("R105","Bobby", 5, "Paul", "B","No");
+        v = new VitalSigns(97.1, 87, 15, 100, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("12-01-2019", v));
+        v = new VitalSigns(99.0, 90, 12, 100, 90);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("10-07-2019", v));
+        v = new VitalSigns(101.0, 85, 13, 120, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("18-12-2019", v));        
+        patients.add(p);
+        
+        p = new Patient("R110","Paige", 10, "Richard", "A","Yes");
+        v = new VitalSigns(98.6, 87, 15, 100, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("28-09-2012", v));
+        v = new VitalSigns(99.1, 90, 12, 90, 60);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("21-07-2012", v));
+        v = new VitalSigns(99.0, 75, 13, 120, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("18-05-2012", v));        
+        patients.add(p);
+        
+        p = new Patient("R113","Rexi", 13, "Paul", "AB","Yes");
+        v = new VitalSigns(99.3, 99, 12, 90, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("08-09-2018", v));
+        v = new VitalSigns(99.1, 90, 12, 90, 60);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("21-07-2019", v));
+        v = new VitalSigns(99.0, 75, 13, 120, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("18-05-2021", v));        
+        patients.add(p);
+        
+        p = new Patient("R116","Faraz", 16, "Gupta", "AB","No");
+        v = new VitalSigns(97.8, 101, 18, 100, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("28-09-2020", v));
+        v = new VitalSigns(99.1, 90, 12, 90, 60);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("21-07-2020", v));
+        v = new VitalSigns(99.0, 75, 13, 120, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("18-05-2020", v));        
+        patients.add(p);
+        
+        p = new Patient("R118","Thor", 18, "Paul", "B","Yes");
+        v = new VitalSigns(98.6, 87, 15, 110, 60);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("28-09-2021", v));
+        v = new VitalSigns(99.1, 90, 12, 110, 50);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("21-07-2021", v));
+        v = new VitalSigns(99.0, 75, 13, 80, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("18-05-2021", v));        
+        patients.add(p);
+        
+        p = new Patient("R119","Williams", 19, "Gupta", "AB","No");
+        v = new VitalSigns(98.6, 87, 15, 90, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("28-09-2021", v));
+        v = new VitalSigns(99.1, 90, 12, 100, 60);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("21-07-2021", v));
+        v = new VitalSigns(99.0, 75, 13, 90, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("18-05-2021", v));        
+        patients.add(p);
+        
+        p = new Patient("R120","Aditya", 20, "Richard", "AB","Yes");
+        v = new VitalSigns(98.6, 87, 15, 110, 8700);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("28-09-2021", v));
+        v = new VitalSigns(99.1, 90, 12, 130, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("21-07-2021", v));
+        v = new VitalSigns(99.0, 75, 13, 140, 70);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("18-05-2021", v));        
+        patients.add(p);
+        
+        p = new Patient("R121","Sana", 21, "Gupta", "B","No");
+        v = new VitalSigns(98.6, 87, 15, 100, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("28-09-2021", v));
+        v = new VitalSigns(99.1, 90, 12, 90, 60);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("21-07-2021", v));
+        v = new VitalSigns(99.0, 75, 13, 120, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("18-05-2021", v));        
+        patients.add(p);
+        
+        p = new Patient("R122","Emily", 22, "Richard", "A","No");
+        v = new VitalSigns(98.6, 87, 15, 100, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("28-09-2021", v));
+        v = new VitalSigns(99.1, 90, 12, 90, 60);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("21-07-2021", v));
+        v = new VitalSigns(99.0, 75, 13, 120, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("18-05-2021", v));        
+        patients.add(p);
+        
+        p = new Patient("R123","Hannah", 23, "Gupta", "AB","Yes");
+        v = new VitalSigns(98.6, 87, 15, 130, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("28-09-2021", v));
+        v = new VitalSigns(99.1, 90, 12, 150, 60);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("21-07-2021", v));
+        v = new VitalSigns(99.0, 75, 13, 160, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("18-05-2021", v));        
+        patients.add(p);
+        
+        p = new Patient("R124","Bryce", 24, "Richard", "B","Yes");
+        v = new VitalSigns(98.6, 87, 15, 100, 50);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("28-09-2021", v));
+        v = new VitalSigns(99.1, 90, 12, 90, 50);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("21-07-2021", v));
+        v = new VitalSigns(99.0, 75, 13, 120, 40);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("18-05-2021", v));        
+        patients.add(p);
+        
+        p = new Patient("R125","Justin", 25, "Gupta", "A","No");
+        v = new VitalSigns(98.6, 87, 15, 100, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("28-09-2021", v));
+        v = new VitalSigns(99.1, 90, 12, 90, 60);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("21-07-2021", v));
+        v = new VitalSigns(99.0, 75, 13, 120, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("18-05-2021", v));        
+        patients.add(p);
+        
+        p = new Patient("R126","Clay", 26, "Richard", "AB","Yes");
+        v = new VitalSigns(98.6, 87, 15, 170, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("28-09-2021", v));
+        v = new VitalSigns(99.1, 90, 12, 200, 60);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("21-07-2021", v));
+        v = new VitalSigns(99.0, 75, 13, 220, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("18-05-2021", v));        
+        patients.add(p);
+        
+        p = new Patient("R127","Erica", 27, "Paul", "A","No");
+        v = new VitalSigns(98.6, 87, 15, 90, 80);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("28-09-2021", v));
+        v = new VitalSigns(99.1, 90, 12, 110, 60);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("21-07-2021", v));
+        v = new VitalSigns(99.0, 75, 13, 120, 60);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("18-05-2021", v));        
+        patients.add(p);
+        
+        p = new Patient("R128","Sandy", 28, "Gupta", "B","Yes");
+        v = new VitalSigns(98.6, 87, 15, 100, 70);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("28-09-2021", v));
+        v = new VitalSigns(99.1, 90, 12, 90, 50);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("21-07-2021", v));
+        v = new VitalSigns(99.0, 75, 13, 120, 50);
+        p.getEncounterhistory().getEncounters().add(new Model.Encounter("18-05-2021", v));        
+        patients.add(p);
+        
+               
+        
+        
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

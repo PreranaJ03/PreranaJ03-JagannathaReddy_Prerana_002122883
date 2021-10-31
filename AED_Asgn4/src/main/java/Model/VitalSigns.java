@@ -10,16 +10,27 @@ package Model;
  * @author prerana
  */
 public class VitalSigns {
-    private int body_temperature;
+    private double body_temperature;
     private int pulse_rate;
     private int respiration_rate;
-    private int blood_pressure;
+    private int systolic_pressure;
+    private int diastolic_pressure;
 
-    public int getBody_temperature() {
+    public VitalSigns(double body_temperature, int pulse_rate, int respiration_rate, int systolic_pressure, int diastolic_pressure) {
+        this.body_temperature = body_temperature;
+        this.pulse_rate = pulse_rate;
+        this.respiration_rate = respiration_rate;
+        this.systolic_pressure = systolic_pressure;
+        this.diastolic_pressure = diastolic_pressure;
+    }
+    
+    
+
+    public double getBody_temperature() {
         return body_temperature;
     }
 
-    public void setBody_temperature(int body_temperature) {
+    public void setBody_temperature(double body_temperature) {
         this.body_temperature = body_temperature;
     }
 
@@ -39,13 +50,23 @@ public class VitalSigns {
         this.respiration_rate = respiration_rate;
     }
 
-    public int getBlood_pressure() {
-        return blood_pressure;
+    public int getSystolic_pressure() {
+        return systolic_pressure;
     }
 
-    public void setBlood_pressure(int blood_pressure) {
-        this.blood_pressure = blood_pressure;
+    public void setSystolic_pressure(int systolic_pressure) {
+        this.systolic_pressure = systolic_pressure;
     }
+
+    public int getDiastolic_pressure() {
+        return diastolic_pressure;
+    }
+
+    public void setDiastolic_pressure(int diastolic_pressure) {
+        this.diastolic_pressure = diastolic_pressure;
+    }
+
+    
     
     
     

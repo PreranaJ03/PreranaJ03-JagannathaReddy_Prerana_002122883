@@ -5,6 +5,7 @@
  */
 package Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,9 +13,15 @@ import java.util.List;
  * @author prerana
  */
 public class Community {
-    List<Home> homes;
+    List<Home> homes = new ArrayList<Home>();
     City city;
     String communityName;
+
+    public Community(String communityName) {
+        this.communityName = communityName;
+    }
+    
+    
 
     public List<Home> getHomes() {
         return homes;

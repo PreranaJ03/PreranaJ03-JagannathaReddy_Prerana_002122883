@@ -13,10 +13,22 @@ public class Patient {
     
     private String Unique_ID;
     private String pName;
-    private String pID;
+    private int pID;
     private String docName;
     private String bloodGroup;
     private String medHistory;
+    EncounterHistory encounterhistory = new EncounterHistory();
+
+    public Patient(String Unique_ID, String pName, int pID, String docName, String bloodGroup, String medHistory) {
+        this.Unique_ID = Unique_ID;
+        this.pName = pName;
+        this.pID = pID;
+        this.docName = docName;
+        this.bloodGroup = bloodGroup;
+        this.medHistory = medHistory;
+    }
+    
+    
 
     public String getUnique_ID() {
         return Unique_ID;
@@ -34,11 +46,11 @@ public class Patient {
         this.pName = pName;
     }
 
-    public String getpID() {
+    public int getpID() {
         return pID;
     }
 
-    public void setpID(String pID) {
+    public void setpID(int pID) {
         this.pID = pID;
     }
 
@@ -65,6 +77,15 @@ public class Patient {
     public void setMedHistory(String medHistory) {
         this.medHistory = medHistory;
     }       
+
+    public EncounterHistory getEncounterhistory() {
+        return encounterhistory;
+    }
+
+    public void setEncounterhistory(EncounterHistory encounterhistory) {
+        this.encounterhistory = encounterhistory;
+    }
+    
     
     
     

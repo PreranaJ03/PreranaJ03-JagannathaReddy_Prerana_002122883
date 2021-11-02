@@ -5,6 +5,9 @@
  */
 package Model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author prerana
@@ -12,6 +15,17 @@ package Model;
 public class System {
     PersonDirectory persondir;
     PatientDirectory patientdir;
+    List<City> city = new ArrayList<>();
+
+    public List<City> getCity() {
+        return city;
+    }
+
+    public void setCity(List<City> city) {
+        this.city = city;
+    }
+    
+    
 
     public PersonDirectory getPersondir() {
         return persondir;

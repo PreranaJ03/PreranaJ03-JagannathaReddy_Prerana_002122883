@@ -5,6 +5,7 @@
  */
 package Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ import java.util.List;
  * @author prerana
  */
 public class EncounterHistory {
-    List<Encounter> encounters;
+    List<Encounter> encounters = new ArrayList<Encounter>();
 
     public List<Encounter> getEncounters() {
         return encounters;

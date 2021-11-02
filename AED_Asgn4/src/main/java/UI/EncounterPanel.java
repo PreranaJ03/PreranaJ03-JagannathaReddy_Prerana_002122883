@@ -5,8 +5,10 @@
  */
 package UI;
 
+import Model.Encounter;
 import Model.Patient;
 import Model.System;
+import Model.VitalSigns;
 
 /**
  *
@@ -21,9 +23,10 @@ public class EncounterPanel extends javax.swing.JPanel {
     System sys;
     public EncounterPanel(System sys) {
         initComponents();
-        
         this.sys = sys;
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,10 +47,13 @@ public class EncounterPanel extends javax.swing.JPanel {
         txtbodytemp = new javax.swing.JTextField();
         txtpulserate = new javax.swing.JTextField();
         txtresprate = new javax.swing.JTextField();
-        txtbloodpressure = new javax.swing.JTextField();
-        lbldateofvisit = new javax.swing.JLabel();
+        lblSystolic = new javax.swing.JLabel();
         txtdateofvisit = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
+        lbldiastolic = new javax.swing.JLabel();
+        lbldateofvisit2 = new javax.swing.JLabel();
+        txtdia = new javax.swing.JTextField();
+        txtsys = new javax.swing.JTextField();
 
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("ENCOUNTER MANAGEMENT ");
@@ -68,12 +74,22 @@ public class EncounterPanel extends javax.swing.JPanel {
             }
         });
 
-        lbldateofvisit.setText("Date of Visit :");
+        lblSystolic.setText("Systolic - ");
 
         btnAdd.setText("ADD");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
+            }
+        });
+
+        lbldiastolic.setText("Diastolic -");
+
+        lbldateofvisit2.setText("Date of Visit :");
+
+        txtsys.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtsysActionPerformed(evt);
             }
         });
 
@@ -83,28 +99,42 @@ public class EncounterPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addGap(483, 483, 483)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblbloodpressure, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(287, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(lblbodytemp, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
                         .addComponent(lblpid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(lblpulserate, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblresprate, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblbloodpressure, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbldateofvisit, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblresprate, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtresprate)
                     .addComponent(txtpulserate)
                     .addComponent(txtbodytemp)
                     .addComponent(txtpid, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
-                    .addComponent(txtbloodpressure)
                     .addComponent(txtdateofvisit))
                 .addContainerGap(288, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(477, 477, 477)
-                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(215, 215, 215)
+                .addComponent(lblSystolic, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtsys, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbldiastolic, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtdia, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(219, 219, 219))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(307, 307, 307)
+                    .addComponent(lbldateofvisit2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(630, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,17 +156,24 @@ public class EncounterPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtresprate)
                     .addComponent(lblresprate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblbloodpressure, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtbloodpressure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addGap(28, 28, 28)
+                .addComponent(lblbloodpressure, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbldateofvisit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtdateofvisit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53)
+                    .addComponent(lblSystolic, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbldiastolic, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtdia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtsys, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addComponent(txtdateofvisit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addContainerGap(158, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(471, Short.MAX_VALUE)
+                    .addComponent(lbldateofvisit2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(237, 237, 237)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -148,26 +185,38 @@ public class EncounterPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         for(Patient p : sys.getPatientdir().getListofpatients()) {
-            if(p)
+            if(p.getUnique_ID().equals(txtpid.getText())) {
+                    VitalSigns vs = new VitalSigns(Double.parseDouble(txtbodytemp.getText()),Integer.parseInt(txtpulserate.getText()),Integer.parseInt(txtresprate.getText()),Integer.parseInt(txtsys.getText()), Integer.parseInt( txtdia.getText()));
+                    Encounter e = new Encounter(txtpid.getText(), vs);
+                    p.getEncounterhistory().getEncounters().add(e);
+                    break;
+            }
             
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
+    private void txtsysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsysActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtsysActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JLabel lblSystolic;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblbloodpressure;
     private javax.swing.JLabel lblbodytemp;
-    private javax.swing.JLabel lbldateofvisit;
+    private javax.swing.JLabel lbldateofvisit2;
+    private javax.swing.JLabel lbldiastolic;
     private javax.swing.JLabel lblpid;
     private javax.swing.JLabel lblpulserate;
     private javax.swing.JLabel lblresprate;
-    private javax.swing.JTextField txtbloodpressure;
     private javax.swing.JTextField txtbodytemp;
     private javax.swing.JTextField txtdateofvisit;
+    private javax.swing.JTextField txtdia;
     private javax.swing.JTextField txtpid;
     private javax.swing.JTextField txtpulserate;
     private javax.swing.JTextField txtresprate;
+    private javax.swing.JTextField txtsys;
     // End of variables declaration//GEN-END:variables
 }

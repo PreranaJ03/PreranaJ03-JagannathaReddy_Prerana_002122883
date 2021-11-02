@@ -11,12 +11,12 @@ package Model;
  */
 public class Home {
     
-    private String Apt_number;
+    //private String Apt_number;
     private String Apt_Name;
     Community community;
     
-    public Home(String Apt_number, String Apt_Name, Community community) {
-        this.Apt_number = Apt_number;
+    public Home(String Apt_Name, Community community) {
+        //this.Apt_number = Apt_number;
         this.Apt_Name = Apt_Name;
         this.community = community;        
     }
@@ -38,13 +38,13 @@ public class Home {
     }
     
     
-    public String getApt_number() {
-        return Apt_number;
-    }
-
-    public void setApt_number(String Apt_number) {
-        this.Apt_number = Apt_number;
-    }
+//    public String getApt_number() {
+//        return Apt_number;
+//    }
+//
+//    public void setApt_number(String Apt_number) {
+//        this.Apt_number = Apt_number;
+//    }
 
         
 }

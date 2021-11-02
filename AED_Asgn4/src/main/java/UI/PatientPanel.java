@@ -5,6 +5,10 @@
  */
 package UI;
 
+import Model.Patient;
+import Model.Person;
+import Model.System;
+
 /**
  *
  * @author prerana
@@ -14,8 +18,10 @@ public class PatientPanel extends javax.swing.JPanel {
     /**
      * Creates new form Patient
      */
-    public PatientPanel() {
+    System sys;
+    public PatientPanel(System sys) {
         initComponents();
+        this.sys = sys;
     }
 
     /**
@@ -29,7 +35,7 @@ public class PatientPanel extends javax.swing.JPanel {
 
         lblTitle = new javax.swing.JLabel();
         lblUniqueID = new javax.swing.JLabel();
-        txtUniqueID = new javax.swing.JTextField();
+        txtsearch = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
@@ -43,6 +49,9 @@ public class PatientPanel extends javax.swing.JPanel {
         txtbloodgroup = new javax.swing.JTextField();
         lblmedhistory = new javax.swing.JLabel();
         txtmedhistory = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
+        lbluid = new javax.swing.JLabel();
+        txtuid = new javax.swing.JTextField();
 
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("PATIENT MANAGEMENT");
@@ -50,10 +59,25 @@ public class PatientPanel extends javax.swing.JPanel {
         lblUniqueID.setText("UNIQUE ID :");
 
         btnAdd.setText("ADD");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         btnUpdate.setText("UPDATE");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("DELETE");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         lblpname.setText("PATIENT NAME :");
 
@@ -65,6 +89,15 @@ public class PatientPanel extends javax.swing.JPanel {
 
         lblmedhistory.setText("MEDICAL HISTORY :");
 
+        btnSearch.setText("SEARCH");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        lbluid.setText("UNIQUE ID :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -74,8 +107,10 @@ public class PatientPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblUniqueID, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(txtUniqueID, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(308, 308, 308))
+                .addComponent(txtsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(btnSearch)
+                .addGap(170, 170, 170))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(170, 170, 170)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -91,9 +126,11 @@ public class PatientPanel extends javax.swing.JPanel {
                     .addComponent(lblpid, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbldocname)
                     .addComponent(lblbloodgroup)
-                    .addComponent(lblmedhistory))
+                    .addComponent(lblmedhistory)
+                    .addComponent(lbluid, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtuid, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtmedhistory, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtbloodgroup, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtdocname, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -107,29 +144,34 @@ public class PatientPanel extends javax.swing.JPanel {
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUniqueID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUniqueID, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                    .addComponent(txtsearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUniqueID, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(92, 92, 92)
+                .addGap(57, 57, 57)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtuid, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbluid, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblpname, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtpname, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblpid, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtpid, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                    .addComponent(txtpid, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblpid, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbldocname, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtdocname, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblbloodgroup, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtbloodgroup, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtbloodgroup, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblbloodgroup, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblmedhistory, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -138,10 +180,68 @@ public class PatientPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+        String personID = txtuid.getText().toString();
+        
+        int flag = 0;
+        
+        for(Person p : sys.getPersondir().getListofpersons()){
+            if(p.getUnique_ID().equals(personID)){
+                flag = 1;
+                for(Patient q : sys.getPatientdir().getListofpatients()){
+                     if(q.getUnique_ID().equals(personID)){ 
+                        flag = 0; 
+                        break;
+                     }
+                }
+            }
+        }
+        
+        if(flag == 1){
+            sys.getPatientdir().getListofpatients().add(new Patient(txtuid.getText(),txtpname.getText(),Integer.parseInt(txtpid.getText()),txtdocname.getText(), txtbloodgroup.getText(), txtmedhistory.getText()));
+        }
+
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        btnDelete.doClick();
+        btnAdd.doClick();
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        String personID = txtsearch.getText().toString();
+        for(Patient q : sys.getPatientdir().getListofpatients()){
+            if(q.getUnique_ID().equals(personID)){
+                sys.getPatientdir().getListofpatients().remove(q);
+                break;
+            }
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        String searchbtn = txtsearch.getText();
+        for(Patient pa : sys.getPatientdir().getListofpatients()){
+        if(pa.getUnique_ID().equals(txtsearch.getText())){
+            
+              txtuid.setText(pa.getUnique_ID());
+              txtpname.setText(pa.getpName());
+              txtpid.setText(String.valueOf(pa.getpID()));
+              txtdocname.setText(pa.getDocName());
+              txtbloodgroup.setText(pa.getBloodGroup());
+              txtmedhistory.setText(pa.getMedHistory());
+        }
+    }       
+    }//GEN-LAST:event_btnSearchActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUniqueID;
@@ -150,11 +250,13 @@ public class PatientPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblmedhistory;
     private javax.swing.JLabel lblpid;
     private javax.swing.JLabel lblpname;
-    private javax.swing.JTextField txtUniqueID;
+    private javax.swing.JLabel lbluid;
     private javax.swing.JTextField txtbloodgroup;
     private javax.swing.JTextField txtdocname;
     private javax.swing.JTextField txtmedhistory;
     private javax.swing.JTextField txtpid;
     private javax.swing.JTextField txtpname;
+    private javax.swing.JTextField txtsearch;
+    private javax.swing.JTextField txtuid;
     // End of variables declaration//GEN-END:variables
 }

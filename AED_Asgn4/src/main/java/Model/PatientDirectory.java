@@ -7,6 +7,7 @@ package Model;
 
 import java.util.List;
 import Model.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,7 +15,7 @@ import Model.*;
  */
 public class PatientDirectory {
     
-    List<Patient> listofpatients;
+    List<Patient> listofpatients = new ArrayList<Patient>();
 
     public List<Patient> getListofpatients() {
         return listofpatients;

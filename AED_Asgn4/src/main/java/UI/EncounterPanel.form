@@ -17,6 +17,14 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="lblTitle" alignment="1" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="483" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblbloodpressure" min="-2" pref="185" max="-2" attributes="0"/>
+                  <Component id="btnAdd" min="-2" pref="135" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
           <Group type="102" attributes="0">
               <EmptySpace pref="287" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -26,8 +34,6 @@
                   </Group>
                   <Component id="lblpulserate" min="-2" pref="185" max="-2" attributes="0"/>
                   <Component id="lblresprate" min="-2" pref="185" max="-2" attributes="0"/>
-                  <Component id="lblbloodpressure" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
-                  <Component id="lbldateofvisit" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -35,15 +41,27 @@
                   <Component id="txtpulserate" max="32767" attributes="0"/>
                   <Component id="txtbodytemp" max="32767" attributes="0"/>
                   <Component id="txtpid" pref="309" max="32767" attributes="0"/>
-                  <Component id="txtbloodpressure" max="32767" attributes="0"/>
                   <Component id="txtdateofvisit" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="288" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="477" max="-2" attributes="0"/>
-              <Component id="btnAdd" min="-2" pref="135" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
+              <Component id="lblSystolic" min="-2" pref="119" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="txtsys" min="-2" pref="161" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="lbldiastolic" min="-2" pref="113" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="txtdia" min="-2" pref="161" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="219" max="-2" attributes="0"/>
+          </Group>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="307" max="-2" attributes="0"/>
+                  <Component id="lbldateofvisit2" min="-2" pref="185" max="-2" attributes="0"/>
+                  <EmptySpace pref="630" max="32767" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -71,19 +89,27 @@
                   <Component id="txtresprate" max="32767" attributes="0"/>
                   <Component id="lblresprate" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblbloodpressure" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="txtbloodpressure" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <Component id="lblbloodpressure" min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbldateofvisit" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="txtdateofvisit" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblSystolic" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lbldiastolic" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="txtdia" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtsys" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+              <Component id="txtdateofvisit" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Component id="btnAdd" min="-2" pref="55" max="-2" attributes="0"/>
-              <EmptySpace pref="246" max="32767" attributes="0"/>
+              <EmptySpace pref="158" max="32767" attributes="0"/>
+          </Group>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="471" max="32767" attributes="0"/>
+                  <Component id="lbldateofvisit2" min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="237" max="-2" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -131,11 +157,9 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtresprateActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtbloodpressure">
-    </Component>
-    <Component class="javax.swing.JLabel" name="lbldateofvisit">
+    <Component class="javax.swing.JLabel" name="lblSystolic">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Date of Visit :"/>
+        <Property name="text" type="java.lang.String" value="Systolic - "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtdateofvisit">
@@ -146,6 +170,23 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbldiastolic">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Diastolic -"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbldateofvisit2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Date of Visit :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtdia">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtsys">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtsysActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

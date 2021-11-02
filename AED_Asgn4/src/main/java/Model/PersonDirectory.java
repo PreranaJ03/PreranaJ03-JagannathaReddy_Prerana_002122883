@@ -7,13 +7,14 @@ package Model;
 
 import java.util.List;
 import Model.Person;
+import java.util.ArrayList;
 
 /**
  *
  * @author prerana
  */
 public class PersonDirectory {
-    List<Person> listofpersons;
+    List<Person> listofpersons = new ArrayList<Person>();
 
     public List<Person> getListofpersons() {
         return listofpersons;

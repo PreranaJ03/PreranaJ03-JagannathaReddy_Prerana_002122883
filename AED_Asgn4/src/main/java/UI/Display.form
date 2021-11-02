@@ -18,6 +18,13 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="lblTitle" alignment="1" max="32767" attributes="0"/>
           <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="lblcount" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="txtcount" min="-2" pref="82" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -34,6 +41,26 @@
                       <EmptySpace min="-2" pref="383" max="-2" attributes="0"/>
                       <Component id="lbltext" min="-2" pref="361" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="lblbloodgroup" min="-2" pref="110" max="-2" attributes="0"/>
+                          <Component id="lblpname" min="-2" pref="110" max="-2" attributes="0"/>
+                          <Component id="lblbodytemp" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
+                          <Component id="lblpid3" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
+                          <Component id="lblresp" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
+                          <Component id="lblresprate" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtpname" min="-2" pref="157" max="-2" attributes="0"/>
+                          <Component id="txtpid" min="-2" pref="157" max="-2" attributes="0"/>
+                          <Component id="txtbloodgroup" min="-2" pref="157" max="-2" attributes="0"/>
+                          <Component id="txtbodytemp" min="-2" pref="157" max="-2" attributes="0"/>
+                          <Component id="txtpulserate" min="-2" pref="157" max="-2" attributes="0"/>
+                          <Component id="txtresprate" min="-2" pref="157" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
               <EmptySpace pref="197" max="32767" attributes="0"/>
           </Group>
@@ -44,16 +71,52 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="lblTitle" min="-2" pref="63" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-              <Component id="lbltext" pref="52" max="32767" attributes="0"/>
+              <Component id="lbltext" pref="40" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="comboAge" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                   <Component id="combocommunity" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnSearch" min="-2" pref="44" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="128" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblcount" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtcount" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblpid3" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="txtpid" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblpname" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="txtpname" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblbloodgroup" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="txtbloodgroup" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblbodytemp" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="txtbodytemp" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblresp" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="txtpulserate" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblresprate" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="txtresprate" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -68,14 +131,13 @@
     <Component class="javax.swing.JComboBox" name="comboAge">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="7">
-            <StringItem index="0" value="AGE"/>
-            <StringItem index="1" value="1 - 14"/>
-            <StringItem index="2" value="15 - 39"/>
-            <StringItem index="3" value="40 - 65"/>
-            <StringItem index="4" value="66 - 100"/>
-            <StringItem index="5" value=" "/>
-            <StringItem index="6" value=" "/>
+          <StringArray count="6">
+            <StringItem index="0" value="1 - 14"/>
+            <StringItem index="1" value="15 - 39"/>
+            <StringItem index="2" value="40 - 65"/>
+            <StringItem index="3" value="66 - 100"/>
+            <StringItem index="4" value=""/>
+            <StringItem index="5" value=""/>
           </StringArray>
         </Property>
       </Properties>
@@ -93,12 +155,33 @@
         <Component class="javax.swing.JTable" name="jTable1">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="4">
-                <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+              <Table columnCount="3" rowCount="27">
+                <Column editable="false" title="Patient ID" type="java.lang.Object"/>
+                <Column editable="true" title="Systolic Blood Pressure" type="java.lang.Object"/>
+                <Column editable="true" title="Diastolic Blood Pressure" type="java.lang.Object"/>
               </Table>
+            </Property>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
+            </Property>
+            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
         </Component>
@@ -107,13 +190,10 @@
     <Component class="javax.swing.JComboBox" name="combocommunity">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="6">
-            <StringItem index="0" value="COMMUNITY"/>
-            <StringItem index="1" value="Downtown"/>
-            <StringItem index="2" value="Boylston"/>
-            <StringItem index="3" value="Roxbury"/>
-            <StringItem index="4" value=" "/>
-            <StringItem index="5" value=" "/>
+          <StringArray count="3">
+            <StringItem index="0" value="Downtown"/>
+            <StringItem index="1" value="Boylston"/>
+            <StringItem index="2" value="Roxbury"/>
           </StringArray>
         </Property>
       </Properties>
@@ -125,11 +205,66 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="SEARCH"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="lbltext">
       <Properties>
         <Property name="text" type="java.lang.String" value="Search by Age and Community to display "/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblpname">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Patient Name :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblcount">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="COUNT :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtcount">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblbloodgroup">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Blood Group :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblbodytemp">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Body Temp :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblpid3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Patient ID :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblresp">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pulse Rate :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblresprate">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Resp Rate :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtpname">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtpid">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtpidActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtbloodgroup">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtbodytemp">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtpulserate">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtresprate">
     </Component>
   </SubComponents>
 </Form>

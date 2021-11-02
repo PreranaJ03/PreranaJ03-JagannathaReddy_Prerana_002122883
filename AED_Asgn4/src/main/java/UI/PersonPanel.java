@@ -6,6 +6,13 @@
 
 package UI;
 
+import Model.City;
+import Model.Community;
+import Model.Home;
+import Model.Person;
+import Model.System;
+import java.text.ParseException;
+
 /**
  *
  * @author prerana
@@ -13,8 +20,11 @@ package UI;
 public class PersonPanel extends javax.swing.JPanel {
 
     /** Creates new form Person */
-    public PersonPanel() {
+    
+    System sys;
+    public PersonPanel(System sys) {
         initComponents();
+        this.sys = sys;
     }
 
     /** This method is called from within the constructor to
@@ -28,56 +38,72 @@ public class PersonPanel extends javax.swing.JPanel {
 
         lblTitle = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
-        lblDOB = new javax.swing.JLabel();
         lblAge = new javax.swing.JLabel();
         lblEmail_ID = new javax.swing.JLabel();
-        lblAddress = new javax.swing.JLabel();
+        lblHome = new javax.swing.JLabel();
         lblcity = new javax.swing.JLabel();
-        lblPostal = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
+        txtUniqueID = new javax.swing.JTextField();
         txtEmail_ID = new javax.swing.JTextField();
-        txtAddress = new javax.swing.JTextField();
+        txtHome = new javax.swing.JTextField();
         txtAge = new javax.swing.JTextField();
-        txtPostal_Code = new javax.swing.JTextField();
-        txtUnique_ID = new javax.swing.JTextField();
-        txtDOB = new javax.swing.JTextField();
+        txtCity = new javax.swing.JTextField();
         lblCommunity = new javax.swing.JLabel();
-        txtUnique_ID1 = new javax.swing.JTextField();
+        txtcommunity = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
-        lblUniqueID = new javax.swing.JLabel();
-        txtUniqueID = new javax.swing.JTextField();
+        lblsearch = new javax.swing.JLabel();
+        txtsearch = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
+        lbluniqueID = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
 
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("PERSON MANAGEMENT ");
 
         lblName.setText("NAME :");
 
-        lblDOB.setText("DATE OF BIRTH :");
-
         lblAge.setText("AGE :");
 
         lblEmail_ID.setText("EMAIL ID :");
 
-        lblAddress.setText("ADDRESS :");
+        lblHome.setText("HOME :");
 
         lblcity.setText("CITY :");
-
-        lblPostal.setText("POSTAL CODE :");
 
         lblCommunity.setText("COMMUNITY :");
 
         btnAdd.setText("ADD");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         btnUpdate.setText("UPDATE");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("DELETE");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
-        lblUniqueID.setText("UNIQUE ID :");
+        lblsearch.setText("UNIQUE ID :");
 
         btnSearch.setText("SEARCH");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        lbluniqueID.setText("UNIQUE ID :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -86,9 +112,9 @@ public class PersonPanel extends javax.swing.JPanel {
             .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(345, 345, 345)
-                .addComponent(lblUniqueID, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUniqueID, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
+                .addComponent(txtsearch, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSearch)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -98,34 +124,26 @@ public class PersonPanel extends javax.swing.JPanel {
                         .addGap(338, 338, 338)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblEmail_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblHome, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblcity, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbluniqueID, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtEmail_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPostal_Code, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUnique_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUnique_ID1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtHome, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtcommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtUniqueID, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(151, 151, 151)
-                                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(217, 217, 217))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(151, 151, 151)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(217, 217, 217)
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(358, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(107, 840, Short.MAX_VALUE)
@@ -138,22 +156,22 @@ public class PersonPanel extends javax.swing.JPanel {
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUniqueID, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUniqueID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtsearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbluniqueID)
+                    .addComponent(txtUniqueID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDOB)
-                    .addComponent(txtDOB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAge)
@@ -164,49 +182,116 @@ public class PersonPanel extends javax.swing.JPanel {
                     .addComponent(txtEmail_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAddress))
+                    .addComponent(txtHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblHome))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblcity)
-                    .addComponent(txtPostal_Code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUnique_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCommunity)
-                    .addComponent(txtUnique_ID1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(189, 189, 189))
+                    .addComponent(txtcommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(236, 236, 236))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+        
+        
+        City ci = null;
+        for(City i : sys.getCity()){
+        if(i.getCityName().equals(txtCity.getText())){
+        ci = i;
+        break;
+        }
+        }
+        if(ci == null){
+        ci = new City(txtCity.getText());
+        sys.getCity().add(ci);
+        }
+        
+        Community c = null;
+        for(Community i : ci.getCommunities()){
+            if(i.getCommunityName().equals(txtcommunity.getText())){
+                c = i;
+                break;
+            }
+        }
+        if(c == null){
+            c = new Community(txtcommunity.getText());
+            c.setCity(ci);
+            ci.getCommunities().add(c);
+        }
+         
+        Home h = new Home(txtHome.getText(), c);
+        Person p = new Person(txtUniqueID.getText(), txtName.getText(),Integer.parseInt(txtAge.getText()), txtEmail_ID.getText(), h);
+        sys.getPersondir().getListofpersons().add(p);
+        
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        for(Person p : sys.getPersondir().getListofpersons()){
+        if(p.getUnique_ID().equals(txtUniqueID.getText())){
+        sys.getPersondir().getListofpersons().remove(p);
+        btnAdd.doClick();
+        break;
+    }//GEN-LAST:event_btnUpdateActionPerformed
+        }
+    }
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        for(Person p : sys.getPersondir().getListofpersons()){
+        if(p.getUnique_ID().equals(txtUniqueID.getText())){
+        sys.getPersondir().getListofpersons().remove(p);
+        break;
+    }
+}
+//
+//}
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        String searchbtn = txtsearch.getText();
+        for(Person p : sys.getPersondir().getListofpersons()){
+        if(p.getUnique_ID().equals(txtsearch.getText())){
+            txtUniqueID.setText(p.getUnique_ID());
+            txtName.setText(p.getName());
+            txtAge.setText( String.valueOf(p.getAge()));
+            txtEmail_ID.setText(p.getEmail_ID());
+            txtHome.setText(p.getHome().getApt_Name());
+            txtCity.setText(p.getHome().getCommunity().getCity().getCityName());
+            txtcommunity.setText(p.getHome().getCommunity().getCommunityName());
+        }
+        
+    }//GEN-LAST:event_btnSearchActionPerformed
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
-    private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblCommunity;
-    private javax.swing.JLabel lblDOB;
     private javax.swing.JLabel lblEmail_ID;
+    private javax.swing.JLabel lblHome;
     private javax.swing.JLabel lblName;
-    private javax.swing.JLabel lblPostal;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JLabel lblUniqueID;
     private javax.swing.JLabel lblcity;
-    private javax.swing.JTextField txtAddress;
+    private javax.swing.JLabel lblsearch;
+    private javax.swing.JLabel lbluniqueID;
     private javax.swing.JTextField txtAge;
-    private javax.swing.JTextField txtDOB;
+    private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtEmail_ID;
+    private javax.swing.JTextField txtHome;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPostal_Code;
     private javax.swing.JTextField txtUniqueID;
-    private javax.swing.JTextField txtUnique_ID;
-    private javax.swing.JTextField txtUnique_ID1;
+    private javax.swing.JTextField txtcommunity;
+    private javax.swing.JTextField txtsearch;
     // End of variables declaration//GEN-END:variables
 
 }

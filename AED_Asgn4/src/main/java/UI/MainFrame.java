@@ -26,6 +26,7 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame() {
         initComponents();
         sys = new System();
+        instantiatevalues();
     }
 
     /**
@@ -138,7 +139,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void lblPersonMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblPersonMActionPerformed
         // TODO add your handling code here:
         
-        PersonPanel personPanel = new PersonPanel();
+        PersonPanel personPanel = new PersonPanel(sys);
         splitPane.setRightComponent(personPanel);
         
     }//GEN-LAST:event_lblPersonMActionPerformed
@@ -146,20 +147,20 @@ public class MainFrame extends javax.swing.JFrame {
     private void lblPatientMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblPatientMActionPerformed
         // TODO add your handling code here:
         
-        PatientPanel patientPanel = new PatientPanel();
+        PatientPanel patientPanel = new PatientPanel(sys);
         splitPane.setRightComponent(patientPanel);
         
     }//GEN-LAST:event_lblPatientMActionPerformed
 
     private void lblEncounterMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblEncounterMActionPerformed
         // TODO add your handling code here:
-        EncounterPanel encounterPanel = new EncounterPanel();
+        EncounterPanel encounterPanel = new EncounterPanel(sys);
         splitPane.setRightComponent(encounterPanel);
     }//GEN-LAST:event_lblEncounterMActionPerformed
 
     private void lblDisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblDisplayActionPerformed
         // TODO add your handling code here:
-        Display displayPanel = new Display();
+        Display displayPanel = new Display(sys);
         splitPane.setRightComponent(displayPanel);
     }//GEN-LAST:event_lblDisplayActionPerformed
 
@@ -211,6 +212,7 @@ public class MainFrame extends javax.swing.JFrame {
         List<Person> persons = new ArrayList<>();
 
         City boston = new City("Boston");
+        
 
         Community Downtown = new Community("Downtown");
         Community Boylston = new Community("Boylston");
@@ -218,42 +220,44 @@ public class MainFrame extends javax.swing.JFrame {
 
         Downtown.setCity(boston);
         Roxbury.setCity(boston);      
-     
         Boylston.setCity(boston);
+        
+       
 
         boston.getCommunities().add(Downtown);
         boston.getCommunities().add(Boylston);
         boston.getCommunities().add(Roxbury);
         
+        sys.getCity().add(boston);
 
-        persons.add(new Person("R101","Prer",23,"prer@gmail.com",new Home("1102","JVUE", Downtown)));
-        persons.add(new Person("R102","John",34,"john@gmail.com",new Home("123","Longwood", Boylston)));
-        persons.add(new Person("R103","Joe",40,"joe@gmail.com",new Home("1458","JVUE", Boylston)));
-        persons.add(new Person("R104","Jacob",17,"jacob@gmail.com",new Home("3452","Longwood", Downtown)));
-        persons.add(new Person("R105","Bobby",60,"bobby@gmail.com",new Home("1458","JVUE", Roxbury)));
-        persons.add(new Person("R106","Brown",02,"brown@gmail.com",new Home("0986","Mission Main", Boylston)));
-        persons.add(new Person("R107","Danny",50,"danny@gmail.com",new Home("0987","Huntington", Downtown)));
-        persons.add(new Person("R108","Davis",26,"davis@gmail.com",new Home("1780","Longwood", Boylston)));
-        persons.add(new Person("R109","Daisy",23,"daisy@gmail.com",new Home("130","Davis", Roxbury)));
-        persons.add(new Person("R110","Paige",39,"paige@gmail.com",new Home("12","JVUE", Boylston)));
-        persons.add(new Person("R111","Vaibhav",98,"vaibhav@gmail.com",new Home("1104","Huntington", Roxbury)));
-        persons.add(new Person("R112","Varun",12,"varun@gmail.com",new Home("110","Davis", Downtown)));
-        persons.add(new Person("R113","Rexi",78,"rexi@gmail.com",new Home("1302","Longwood", Boylston)));
-        persons.add(new Person("R114","Madison",10,"madison@gmail.com",new Home("1872","JVUE", Downtown)));
-        persons.add(new Person("R115","Peter",55,"peter@gmail.com",new Home("1332","JVUE", Roxbury)));
-        persons.add(new Person("R116","Faraz",88,"faraz@gmail.com",new Home("2352","JVUE", Downtown)));
-        persons.add(new Person("R117","Loki",13,"loki@gmail.com",new Home("1999","Pheonix", Boylston)));
-        persons.add(new Person("R118","Thor",23,"thor@gmail.com",new Home("1098","Huntington", Roxbury)));
-        persons.add(new Person("R119","Williams",63,"williams@gmail.com",new Home("1092","Davis", Downtown)));
-        persons.add(new Person("R120","Aditya",29,"aditya@gmail.com",new Home("908","Pheonix", Boylston)));
-        persons.add(new Person("R121","Sana",15,"sana@gmail.com",new Home("2340","Huntington", Roxbury)));
-        persons.add(new Person("R122","Emily",27,"emily@gmail.com",new Home("870","Pheonix", Boylston)));
-        persons.add(new Person("R123","Hannah",43,"hannah@gmail.com",new Home("1234","JVUE", Downtown)));
-        persons.add(new Person("R124","Bryce",03,"bryce@gmail.com",new Home("6543","Davis", Boylston)));
-        persons.add(new Person("R125","Justin",73,"justin@gmail.com",new Home("564","Huntington", Downtown)));
-        persons.add(new Person("R126","Clay",22,"clay@gmail.com",new Home("777","Pheonix", Roxbury)));
-        persons.add(new Person("R127","Erica",49,"erica@gmail.com",new Home("666","Davis", Boylston)));
-        persons.add(new Person("R128","Sandy",93,"sandy@gmail.com",new Home("10","Pheonix", Downtown)));
+        persons.add(new Person("R101","Prer",23,"prer@gmail.com",new Home("JVUE", Downtown)));
+        persons.add(new Person("R102","John",34,"john@gmail.com",new Home("Longwood", Boylston)));
+        persons.add(new Person("R103","Joe",40,"joe@gmail.com",new Home("JVUE", Boylston)));
+        persons.add(new Person("R104","Jacob",17,"jacob@gmail.com",new Home("Longwood", Downtown)));
+        persons.add(new Person("R105","Bobby",60,"bobby@gmail.com",new Home("JVUE", Roxbury)));
+        persons.add(new Person("R106","Brown",02,"brown@gmail.com",new Home("Mission Main", Boylston)));
+        persons.add(new Person("R107","Danny",50,"danny@gmail.com",new Home("Huntington", Downtown)));
+        persons.add(new Person("R108","Davis",26,"davis@gmail.com",new Home("Longwood", Boylston)));
+        persons.add(new Person("R109","Daisy",23,"daisy@gmail.com",new Home("Davis", Roxbury)));
+        persons.add(new Person("R110","Paige",39,"paige@gmail.com",new Home("JVUE", Boylston)));
+        persons.add(new Person("R111","Vaibhav",98,"vaibhav@gmail.com",new Home("Huntington", Roxbury)));
+        persons.add(new Person("R112","Varun",12,"varun@gmail.com",new Home("Davis", Downtown)));
+        persons.add(new Person("R113","Rexi",78,"rexi@gmail.com",new Home("Longwood", Boylston)));
+        persons.add(new Person("R114","Madison",10,"madison@gmail.com",new Home("JVUE", Downtown)));
+        persons.add(new Person("R115","Peter",55,"peter@gmail.com",new Home("JVUE", Roxbury)));
+        persons.add(new Person("R116","Faraz",88,"faraz@gmail.com",new Home("JVUE", Downtown)));
+        persons.add(new Person("R117","Loki",13,"loki@gmail.com",new Home("Pheonix", Boylston)));
+        persons.add(new Person("R118","Thor",23,"thor@gmail.com",new Home("Huntington", Roxbury)));
+        persons.add(new Person("R119","Williams",63,"williams@gmail.com",new Home("Davis", Downtown)));
+        persons.add(new Person("R120","Aditya",29,"aditya@gmail.com",new Home("Pheonix", Boylston)));
+        persons.add(new Person("R121","Sana",15,"sana@gmail.com",new Home("Huntington", Roxbury)));
+        persons.add(new Person("R122","Emily",27,"emily@gmail.com",new Home("Pheonix", Boylston)));
+        persons.add(new Person("R123","Hannah",43,"hannah@gmail.com",new Home("JVUE", Downtown)));
+        persons.add(new Person("R124","Bryce",03,"bryce@gmail.com",new Home("Davis", Boylston)));
+        persons.add(new Person("R125","Justin",73,"justin@gmail.com",new Home("Huntington", Downtown)));
+        persons.add(new Person("R126","Clay",22,"clay@gmail.com",new Home("Pheonix", Roxbury)));
+        persons.add(new Person("R127","Erica",49,"erica@gmail.com",new Home("Davis", Boylston)));
+        persons.add(new Person("R128","Sandy",93,"sandy@gmail.com",new Home("Pheonix", Downtown)));
         
         Patient p;
         VitalSigns v = null;
@@ -411,8 +415,10 @@ public class MainFrame extends javax.swing.JFrame {
         p.getEncounterhistory().getEncounters().add(new Model.Encounter("18-05-2021", v));        
         patients.add(p);
         
-               
-        
+        sys.setPatientdir(new PatientDirectory());
+        sys.setPersondir(new PersonDirectory());
+        sys.getPatientdir().setListofpatients(patients);
+        sys.getPersondir().setListofpersons(persons);
         
     }
     

@@ -5,7 +5,9 @@
  */
 package Model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -14,6 +16,7 @@ import java.util.Date;
 public class Encounter {
     private String dateofvisit;
     VitalSigns vitals;
+    
 
     public Encounter(String dateofvisit, VitalSigns vitals) {
         this.dateofvisit = dateofvisit;

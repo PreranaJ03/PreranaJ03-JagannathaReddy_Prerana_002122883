@@ -19,9 +19,9 @@
           <Component id="lblTitle" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="345" max="-2" attributes="0"/>
-              <Component id="lblUniqueID" min="-2" pref="165" max="-2" attributes="0"/>
+              <Component id="lblsearch" min="-2" pref="165" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtUniqueID" pref="403" max="32767" attributes="0"/>
+              <Component id="txtsearch" pref="403" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnSearch" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
@@ -32,41 +32,29 @@
                       <EmptySpace min="-2" pref="338" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="lblAge" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
-                          <Component id="lblDOB" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
                           <Component id="lblEmail_ID" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
-                          <Component id="lblAddress" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
+                          <Component id="lblHome" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
                           <Component id="lblcity" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
-                          <Component id="lblPostal" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
                           <Component id="lblCommunity" min="-2" pref="166" max="-2" attributes="0"/>
+                          <Component id="lblName" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
+                          <Component id="lbluniqueID" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="txtAge" min="-2" pref="252" max="-2" attributes="0"/>
-                          <Component id="txtDOB" min="-2" pref="252" max="-2" attributes="0"/>
                           <Component id="txtEmail_ID" alignment="0" min="-2" pref="252" max="-2" attributes="0"/>
-                          <Component id="txtAddress" alignment="0" min="-2" pref="252" max="-2" attributes="0"/>
-                          <Component id="txtPostal_Code" alignment="0" min="-2" pref="252" max="-2" attributes="0"/>
-                          <Component id="txtUnique_ID" alignment="0" min="-2" pref="252" max="-2" attributes="0"/>
-                          <Component id="txtUnique_ID1" min="-2" pref="252" max="-2" attributes="0"/>
+                          <Component id="txtHome" alignment="0" min="-2" pref="252" max="-2" attributes="0"/>
+                          <Component id="txtCity" alignment="0" min="-2" pref="252" max="-2" attributes="0"/>
+                          <Component id="txtcommunity" min="-2" pref="252" max="-2" attributes="0"/>
+                          <Component id="txtUniqueID" min="-2" pref="252" max="-2" attributes="0"/>
+                          <Component id="txtName" min="-2" pref="252" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
-                              <Component id="btnAdd" min="-2" pref="154" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="217" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblName" min="-2" pref="166" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnUpdate" min="-2" pref="154" max="-2" attributes="0"/>
-                          <Component id="txtName" min="-2" pref="252" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
+                      <Component id="btnAdd" min="-2" pref="154" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="217" max="-2" attributes="0"/>
+                      <Component id="btnUpdate" min="-2" pref="154" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="358" max="32767" attributes="0"/>
@@ -84,25 +72,25 @@
               <Component id="lblTitle" min="-2" pref="79" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblUniqueID" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="txtUniqueID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblsearch" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="txtsearch" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnSearch" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="14" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnAdd" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
                   <Component id="btnUpdate" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
                   <Component id="btnDelete" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lbluniqueID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtUniqueID" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblName" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtName" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblDOB" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtDOB" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -116,25 +104,20 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtAddress" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtHome" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblHome" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblcity" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtPostal_Code" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblPostal" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="txtUnique_ID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCity" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblCommunity" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtUnique_ID1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtcommunity" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="236" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -151,11 +134,6 @@
         <Property name="text" type="java.lang.String" value="NAME :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblDOB">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="DATE OF BIRTH :"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="lblAge">
       <Properties>
         <Property name="text" type="java.lang.String" value="AGE :"/>
@@ -166,9 +144,9 @@
         <Property name="text" type="java.lang.String" value="EMAIL ID :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblAddress">
+    <Component class="javax.swing.JLabel" name="lblHome">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ADDRESS :"/>
+        <Property name="text" type="java.lang.String" value="HOME :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblcity">
@@ -176,58 +154,68 @@
         <Property name="text" type="java.lang.String" value="CITY :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblPostal">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="POSTAL CODE :"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtName">
+    <Component class="javax.swing.JTextField" name="txtUniqueID">
     </Component>
     <Component class="javax.swing.JTextField" name="txtEmail_ID">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtAddress">
+    <Component class="javax.swing.JTextField" name="txtHome">
     </Component>
     <Component class="javax.swing.JTextField" name="txtAge">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtPostal_Code">
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtUnique_ID">
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtDOB">
+    <Component class="javax.swing.JTextField" name="txtCity">
     </Component>
     <Component class="javax.swing.JLabel" name="lblCommunity">
       <Properties>
         <Property name="text" type="java.lang.String" value="COMMUNITY :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtUnique_ID1">
+    <Component class="javax.swing.JTextField" name="txtcommunity">
     </Component>
     <Component class="javax.swing.JButton" name="btnAdd">
       <Properties>
         <Property name="text" type="java.lang.String" value="ADD"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnUpdate">
       <Properties>
         <Property name="text" type="java.lang.String" value="UPDATE"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnDelete">
       <Properties>
         <Property name="text" type="java.lang.String" value="DELETE"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblUniqueID">
+    <Component class="javax.swing.JLabel" name="lblsearch">
       <Properties>
         <Property name="text" type="java.lang.String" value="UNIQUE ID :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtUniqueID">
+    <Component class="javax.swing.JTextField" name="txtsearch">
     </Component>
     <Component class="javax.swing.JButton" name="btnSearch">
       <Properties>
         <Property name="text" type="java.lang.String" value="SEARCH"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbluniqueID">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="UNIQUE ID :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtName">
     </Component>
   </SubComponents>
 </Form>

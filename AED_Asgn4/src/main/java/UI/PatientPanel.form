@@ -21,8 +21,10 @@
               <EmptySpace max="32767" attributes="0"/>
               <Component id="lblUniqueID" min="-2" pref="165" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="txtUniqueID" min="-2" pref="251" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="308" max="-2" attributes="0"/>
+              <Component id="txtsearch" min="-2" pref="251" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+              <Component id="btnSearch" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
@@ -41,9 +43,11 @@
                   <Component id="lbldocname" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="lblbloodgroup" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="lblmedhistory" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbluid" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="txtuid" min="-2" pref="235" max="-2" attributes="0"/>
                   <Component id="txtmedhistory" min="-2" pref="235" max="-2" attributes="0"/>
                   <Component id="txtbloodgroup" min="-2" pref="235" max="-2" attributes="0"/>
                   <Component id="txtdocname" min="-2" pref="235" max="-2" attributes="0"/>
@@ -60,34 +64,40 @@
               <Component id="lblTitle" min="-2" pref="79" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtUniqueID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtsearch" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblUniqueID" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="btnSearch" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="49" max="32767" attributes="0"/>
+              <EmptySpace pref="16" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnAdd" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
                   <Component id="btnUpdate" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
                   <Component id="btnDelete" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtuid" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="lbluid" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblpname" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="txtpname" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblpid" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="txtpid" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="lblpid" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbldocname" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="txtdocname" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblbloodgroup" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="txtbloodgroup" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="lblbloodgroup" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -111,22 +121,31 @@
         <Property name="text" type="java.lang.String" value="UNIQUE ID :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtUniqueID">
+    <Component class="javax.swing.JTextField" name="txtsearch">
     </Component>
     <Component class="javax.swing.JButton" name="btnAdd">
       <Properties>
         <Property name="text" type="java.lang.String" value="ADD"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnUpdate">
       <Properties>
         <Property name="text" type="java.lang.String" value="UPDATE"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnDelete">
       <Properties>
         <Property name="text" type="java.lang.String" value="DELETE"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblpname">
       <Properties>
@@ -162,6 +181,21 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtmedhistory">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSearch">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="SEARCH"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbluid">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="UNIQUE ID :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtuid">
     </Component>
   </SubComponents>
 </Form>

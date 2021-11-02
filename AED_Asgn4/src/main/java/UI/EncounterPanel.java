@@ -9,6 +9,7 @@ import Model.Encounter;
 import Model.Patient;
 import Model.System;
 import Model.VitalSigns;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -55,27 +56,67 @@ public class EncounterPanel extends javax.swing.JPanel {
         txtdia = new javax.swing.JTextField();
         txtsys = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 204, 204));
+
+        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("ENCOUNTER MANAGEMENT ");
 
+        txtpid.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtpidFocusLost(evt);
+            }
+        });
+
+        lblpid.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblpid.setText("Patient ID :");
 
+        lblbodytemp.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblbodytemp.setText("Body Temperature :");
 
+        lblpulserate.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblpulserate.setText("Pulse Rate :");
 
+        lblresprate.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblresprate.setText("Respiration Rate :");
 
+        lblbloodpressure.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblbloodpressure.setText("Blood Pressure :");
 
+        txtbodytemp.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtbodytempFocusLost(evt);
+            }
+        });
+
+        txtpulserate.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtpulserateFocusLost(evt);
+            }
+        });
+
+        txtresprate.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtresprateFocusLost(evt);
+            }
+        });
         txtresprate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtresprateActionPerformed(evt);
             }
         });
 
+        lblSystolic.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblSystolic.setText("Systolic - ");
 
+        txtdateofvisit.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtdateofvisitFocusLost(evt);
+            }
+        });
+
+        btnAdd.setBackground(new java.awt.Color(0, 0, 0));
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("ADD");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,10 +124,23 @@ public class EncounterPanel extends javax.swing.JPanel {
             }
         });
 
+        lbldiastolic.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbldiastolic.setText("Diastolic -");
 
+        lbldateofvisit2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbldateofvisit2.setText("Date of Visit :");
 
+        txtdia.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtdiaFocusLost(evt);
+            }
+        });
+
+        txtsys.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtsysFocusLost(evt);
+            }
+        });
         txtsys.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtsysActionPerformed(evt);
@@ -100,10 +154,8 @@ public class EncounterPanel extends javax.swing.JPanel {
             .addComponent(lblTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(483, 483, 483)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblbloodpressure, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lblbloodpressure, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(454, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(287, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,8 +169,7 @@ public class EncounterPanel extends javax.swing.JPanel {
                     .addComponent(txtresprate)
                     .addComponent(txtpulserate)
                     .addComponent(txtbodytemp)
-                    .addComponent(txtpid, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
-                    .addComponent(txtdateofvisit))
+                    .addComponent(txtpid, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE))
                 .addContainerGap(288, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(215, 215, 215)
@@ -130,11 +181,14 @@ public class EncounterPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtdia, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(219, 219, 219))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(307, 307, 307)
-                    .addComponent(lbldateofvisit2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(630, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbldateofvisit2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtdateofvisit, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(279, 279, 279))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,16 +218,13 @@ public class EncounterPanel extends javax.swing.JPanel {
                     .addComponent(lbldiastolic, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtdia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtsys, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52)
-                .addComponent(txtdateofvisit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtdateofvisit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbldateofvisit2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(158, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(471, Short.MAX_VALUE)
-                    .addComponent(lbldateofvisit2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(237, 237, 237)))
+                .addContainerGap(191, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -198,6 +249,62 @@ public class EncounterPanel extends javax.swing.JPanel {
     private void txtsysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsysActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtsysActionPerformed
+
+    private void txtpidFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtpidFocusLost
+        // TODO add your handling code here:
+        if(!(txtpid.getText().matches("[A-Z]{1}[0-9]{3}"))){
+            JOptionPane.showMessageDialog(this, "Invalid input");
+            txtpid.setText("");
+        }
+    }//GEN-LAST:event_txtpidFocusLost
+
+    private void txtbodytempFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtbodytempFocusLost
+        // TODO add your handling code here:
+        if(!(txtbodytemp.getText().matches("[0-9]+"))){
+            JOptionPane.showMessageDialog(this, "Invalid input");
+            txtbodytemp.setText("");
+        }
+    }//GEN-LAST:event_txtbodytempFocusLost
+
+    private void txtpulserateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtpulserateFocusLost
+        // TODO add your handling code here:
+        if(!(txtpulserate.getText().matches("[0-9]+"))){
+            JOptionPane.showMessageDialog(this, "Invalid input");
+            txtpulserate.setText("");
+        }
+    }//GEN-LAST:event_txtpulserateFocusLost
+
+    private void txtresprateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtresprateFocusLost
+        // TODO add your handling code here:
+        if(!(txtresprate.getText().matches("[0-9]+"))){
+            JOptionPane.showMessageDialog(this, "Invalid input");
+            txtresprate.setText("");
+        }
+    }//GEN-LAST:event_txtresprateFocusLost
+
+    private void txtsysFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtsysFocusLost
+        // TODO add your handling code here:
+        if(!(txtsys.getText().matches("[0-9]+"))){
+            JOptionPane.showMessageDialog(this, "Invalid input");
+            txtsys.setText("");
+        }
+    }//GEN-LAST:event_txtsysFocusLost
+
+    private void txtdiaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtdiaFocusLost
+        // TODO add your handling code here:
+        if(!(txtdia.getText().matches("[0-9]+"))){
+            JOptionPane.showMessageDialog(this, "Invalid input");
+            txtdia.setText("");
+        }
+    }//GEN-LAST:event_txtdiaFocusLost
+
+    private void txtdateofvisitFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtdateofvisitFocusLost
+        // TODO add your handling code here:
+        if(!(txtdateofvisit.getText().matches("^(3[01]|[12][0-9]|0[1-9])-(1[0-2]|0[1-9])-[0-9]{4}$"))){
+            JOptionPane.showMessageDialog(null, "Invalid input");
+            txtdateofvisit.setText("");
+        }
+    }//GEN-LAST:event_txtdateofvisitFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

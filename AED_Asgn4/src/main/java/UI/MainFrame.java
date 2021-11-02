@@ -51,8 +51,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        splitPane.setDividerLocation(200);
+        splitPane.setBackground(new java.awt.Color(204, 255, 204));
+        splitPane.setDividerLocation(250);
 
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
+
+        lblPersonM.setBackground(new java.awt.Color(204, 204, 204));
+        lblPersonM.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblPersonM.setText("PERSON MANAGEMENT");
         lblPersonM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,6 +65,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        lblPatientM.setBackground(new java.awt.Color(204, 204, 204));
+        lblPatientM.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblPatientM.setText("PATIENT MANAGEMENT ");
         lblPatientM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +74,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        lblEncounterM.setBackground(new java.awt.Color(204, 204, 204));
+        lblEncounterM.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblEncounterM.setText("ENCOUNTER MANAGEMENT");
         lblEncounterM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +83,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        lblDisplay.setBackground(new java.awt.Color(204, 204, 204));
+        lblDisplay.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblDisplay.setText("DISPLAY");
         lblDisplay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,11 +120,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         splitPane.setLeftComponent(jPanel1);
 
+        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 979, Short.MAX_VALUE)
+            .addGap(0, 884, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

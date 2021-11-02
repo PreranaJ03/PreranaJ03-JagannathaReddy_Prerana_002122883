@@ -8,6 +8,7 @@ package UI;
 import Model.Patient;
 import Model.Person;
 import Model.System;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -53,11 +54,23 @@ public class PatientPanel extends javax.swing.JPanel {
         lbluid = new javax.swing.JLabel();
         txtuid = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 204, 204));
+
+        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("PATIENT MANAGEMENT");
 
+        lblUniqueID.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblUniqueID.setText("UNIQUE ID :");
 
+        txtsearch.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtsearchFocusLost(evt);
+            }
+        });
+
+        btnAdd.setBackground(new java.awt.Color(0, 0, 0));
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("ADD");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,6 +78,8 @@ public class PatientPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdate.setBackground(new java.awt.Color(0, 0, 0));
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("UPDATE");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +87,8 @@ public class PatientPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDelete.setBackground(new java.awt.Color(0, 0, 0));
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("DELETE");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,16 +96,53 @@ public class PatientPanel extends javax.swing.JPanel {
             }
         });
 
+        lblpname.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblpname.setText("PATIENT NAME :");
 
+        txtpname.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtpnameFocusLost(evt);
+            }
+        });
+
+        lblpid.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblpid.setText("PATIENT ID :");
 
+        txtpid.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtpidFocusLost(evt);
+            }
+        });
+
+        txtdocname.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtdocnameFocusLost(evt);
+            }
+        });
+
+        lbldocname.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbldocname.setText("DOCTOR NAME :");
 
+        lblbloodgroup.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblbloodgroup.setText("BLOOD GROUP :");
 
+        txtbloodgroup.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtbloodgroupFocusLost(evt);
+            }
+        });
+
+        lblmedhistory.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblmedhistory.setText("MEDICAL HISTORY :");
 
+        txtmedhistory.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtmedhistoryFocusLost(evt);
+            }
+        });
+
+        btnSearch.setBackground(new java.awt.Color(0, 0, 0));
+        btnSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnSearch.setText("SEARCH");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +150,14 @@ public class PatientPanel extends javax.swing.JPanel {
             }
         });
 
+        lbluid.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbluid.setText("UNIQUE ID :");
+
+        txtuid.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtuidFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -112,7 +173,7 @@ public class PatientPanel extends javax.swing.JPanel {
                 .addComponent(btnSearch)
                 .addGap(170, 170, 170))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(170, 170, 170)
+                .addGap(138, 138, 138)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -152,31 +213,31 @@ public class PatientPanel extends javax.swing.JPanel {
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtuid, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbluid, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblpname, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtpname, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtpid, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblpid, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                    .addComponent(lblpid, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtpid, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbldocname, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtdocname, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtbloodgroup, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblbloodgroup, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                    .addComponent(lblbloodgroup, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtbloodgroup, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblmedhistory, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtmedhistory, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57))
+                .addGap(182, 182, 182))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -236,6 +297,67 @@ public class PatientPanel extends javax.swing.JPanel {
         }
     }       
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void txtsearchFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtsearchFocusLost
+        // TODO add your handling code here:
+        if(!(txtsearch.getText().matches("[A-Z][0-9]{3}"))){
+            JOptionPane.showMessageDialog(null, "Invalid input");
+            txtsearch.setText("");
+        }
+    }//GEN-LAST:event_txtsearchFocusLost
+
+    private void txtuidFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtuidFocusLost
+        // TODO add your handling code here:
+        if(!(txtuid.getText().matches("[A-Z]{1}[0-9]{3}"))){
+            JOptionPane.showMessageDialog(this, "Invalid input");
+            txtuid.setText("");
+        }
+    }//GEN-LAST:event_txtuidFocusLost
+
+    private void txtpnameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtpnameFocusLost
+        // TODO add your handling code here:
+        if(txtpname.getText().trim().length() != 0) {
+           if(!(txtpname.getText().matches("[a-zA-Z ]+"))) {
+           JOptionPane.showMessageDialog(null, "Invalid name");
+           txtpname.setText("");
+       } 
+       }
+    }//GEN-LAST:event_txtpnameFocusLost
+
+    private void txtpidFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtpidFocusLost
+        // TODO add your handling code here:
+        if(!(txtpid.getText().matches("[A-Z]{1}[0-9]{3}"))){
+            JOptionPane.showMessageDialog(this, "Invalid input");
+            txtpid.setText("");
+        }
+    }//GEN-LAST:event_txtpidFocusLost
+
+    private void txtdocnameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtdocnameFocusLost
+        // TODO add your handling code here:
+        if(txtdocname.getText().trim().length() != 0) {
+           if(!(txtdocname.getText().matches("[a-zA-Z ]+"))) {
+           JOptionPane.showMessageDialog(null, "Invalid name");
+           txtdocname.setText("");
+       } 
+       }
+    }//GEN-LAST:event_txtdocnameFocusLost
+
+    private void txtbloodgroupFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtbloodgroupFocusLost
+        // TODO add your handling code here:
+        if(!(txtbloodgroup.getText().matches("[A],[B],[AB],[O]"))){
+            JOptionPane.showMessageDialog(this, "Invalid input");
+            txtbloodgroup.setText("");
+        }
+    }//GEN-LAST:event_txtbloodgroupFocusLost
+
+    private void txtmedhistoryFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtmedhistoryFocusLost
+        // TODO add your handling code here:
+        if(!(txtmedhistory.getText().matches("[Yes],[No]"))){
+            JOptionPane.showMessageDialog(this, "Invalid input");
+            txtmedhistory.setText("");
+        }
+        
+    }//GEN-LAST:event_txtmedhistoryFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

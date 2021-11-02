@@ -12,6 +12,7 @@ import Model.Home;
 import Model.Person;
 import Model.System;
 import java.text.ParseException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -58,21 +59,69 @@ public class PersonPanel extends javax.swing.JPanel {
         lbluniqueID = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 204, 204));
+
+        lblTitle.setBackground(new java.awt.Color(204, 255, 204));
+        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("PERSON MANAGEMENT ");
 
+        lblName.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblName.setText("NAME :");
 
+        lblAge.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblAge.setText("AGE :");
 
+        lblEmail_ID.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblEmail_ID.setText("EMAIL ID :");
 
+        lblHome.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblHome.setText("HOME :");
 
+        lblcity.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblcity.setText("CITY :");
 
+        txtUniqueID.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUniqueIDFocusLost(evt);
+            }
+        });
+
+        txtEmail_ID.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtEmail_IDFocusLost(evt);
+            }
+        });
+
+        txtHome.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtHomeFocusLost(evt);
+            }
+        });
+
+        txtAge.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtAgeFocusLost(evt);
+            }
+        });
+
+        txtCity.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCityFocusLost(evt);
+            }
+        });
+
+        lblCommunity.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblCommunity.setText("COMMUNITY :");
 
+        txtcommunity.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtcommunityFocusLost(evt);
+            }
+        });
+
+        btnAdd.setBackground(new java.awt.Color(0, 0, 0));
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("ADD");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +129,8 @@ public class PersonPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdate.setBackground(new java.awt.Color(0, 0, 0));
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("UPDATE");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +138,8 @@ public class PersonPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDelete.setBackground(new java.awt.Color(0, 0, 0));
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("DELETE");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,8 +147,17 @@ public class PersonPanel extends javax.swing.JPanel {
             }
         });
 
+        lblsearch.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblsearch.setText("UNIQUE ID :");
 
+        txtsearch.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtsearchFocusLost(evt);
+            }
+        });
+
+        btnSearch.setBackground(new java.awt.Color(0, 0, 0));
+        btnSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnSearch.setText("SEARCH");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,7 +165,14 @@ public class PersonPanel extends javax.swing.JPanel {
             }
         });
 
+        lbluniqueID.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbluniqueID.setText("UNIQUE ID :");
+
+        txtName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNameFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -111,44 +180,43 @@ public class PersonPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(345, 345, 345)
-                .addComponent(lblsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtsearch, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
+                .addGap(338, 338, 338)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEmail_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblHome, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblcity, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbluniqueID, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnSearch)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(338, 338, 338)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEmail_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblHome, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblcity, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbluniqueID, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmail_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtHome, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtcommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUniqueID, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(217, 217, 217)
-                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEmail_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHome, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtcommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUniqueID, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(358, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(107, 840, Short.MAX_VALUE)
-                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(138, 138, 138))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(260, 260, 260)
+                        .addComponent(lblsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtsearch, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSearch)
+                        .addGap(29, 29, 29))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(219, 219, 219)
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,6 +337,73 @@ public class PersonPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnSearchActionPerformed
     }
+    
+    private void txtsearchFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtsearchFocusLost
+        // TODO add your handling code here:
+        if(!(txtsearch.getText().matches("[A-Z][0-9]{3}"))){
+            JOptionPane.showMessageDialog(null, "Invalid input");
+            txtsearch.setText("");
+        }
+    }//GEN-LAST:event_txtsearchFocusLost
+
+    private void txtUniqueIDFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUniqueIDFocusLost
+        // TODO add your handling code here:
+        if(!(txtUniqueID.getText().matches("[A-Z]{1}[0-9]{3}"))){
+            JOptionPane.showMessageDialog(this, "Invalid input");
+            txtUniqueID.setText("");
+        }
+    }//GEN-LAST:event_txtUniqueIDFocusLost
+
+    private void txtNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNameFocusLost
+        // TODO add your handling code here:
+        if(txtName.getText().trim().length() != 0) {
+           if(!(txtName.getText().matches("[a-zA-Z ]+"))) {
+           JOptionPane.showMessageDialog(null, "Invalid name");
+           txtName.setText("");
+       } 
+       }
+    }//GEN-LAST:event_txtNameFocusLost
+
+    private void txtAgeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAgeFocusLost
+        // TODO add your handling code here:
+        if(!(txtsearch.getText().matches("[0-9]+"))){
+            JOptionPane.showMessageDialog(null, "Invalid input");
+            txtsearch.setText("");
+        }
+    }//GEN-LAST:event_txtAgeFocusLost
+
+    private void txtEmail_IDFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmail_IDFocusLost
+        // TODO add your handling code here:
+         if(!(txtEmail_ID.getText().matches("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$"))) {
+            JOptionPane.showMessageDialog(null, "Enter a valid email address!");
+            txtEmail_ID.setText("");
+        }
+    }//GEN-LAST:event_txtEmail_IDFocusLost
+
+    private void txtHomeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtHomeFocusLost
+        // TODO add your handling code here:
+        if(!(txtHome.getText().matches("[a-zA-Z0-9,. ]+"))) {
+           JOptionPane.showMessageDialog(null, "Location not found. ");
+           txtHome.setText("");
+       } 
+    }//GEN-LAST:event_txtHomeFocusLost
+
+    private void txtCityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCityFocusLost
+        // TODO add your handling code here:
+        if(!(txtCity.getText().matches("[a-zA-Z]+"))) {
+           JOptionPane.showMessageDialog(null, "Invalid Input. City not found. ");
+           txtCity.setText("");
+       }
+    }//GEN-LAST:event_txtCityFocusLost
+
+    private void txtcommunityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtcommunityFocusLost
+        // TODO add your handling code here:
+        if(!(txtcommunity.getText().matches("[Downtown],[Roxbury],[Boylston]"))) {
+           JOptionPane.showMessageDialog(null, "Invalid Input.");
+           txtcommunity.setText("");
+       }
+    }//GEN-LAST:event_txtcommunityFocusLost
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="cc" green="cc" red="ff" type="rgb"/>
+    </Property>
+  </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -27,7 +32,7 @@
               <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
               <Component id="btnAdd" min="-2" pref="154" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="btnUpdate" min="-2" pref="154" max="-2" attributes="0"/>
@@ -74,37 +79,37 @@
                   <Component id="btnUpdate" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
                   <Component id="btnDelete" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtuid" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="lbluid" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblpname" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="txtpname" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtpid" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="lblpid" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="txtpid" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbldocname" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="txtdocname" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtbloodgroup" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="lblbloodgroup" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="txtbloodgroup" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblmedhistory" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="txtmedhistory" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -112,19 +117,34 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="lblTitle">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="PATIENT MANAGEMENT"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblUniqueID">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="16" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="UNIQUE ID :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtsearch">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtsearchFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAdd">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="ADD"/>
       </Properties>
       <Events>
@@ -133,6 +153,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnUpdate">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="UPDATE"/>
       </Properties>
       <Events>
@@ -141,6 +167,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnDelete">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="DELETE"/>
       </Properties>
       <Events>
@@ -149,41 +181,77 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblpname">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="16" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="PATIENT NAME :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtpname">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtpnameFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblpid">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="16" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="PATIENT ID :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtpid">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtpidFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtdocname">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtdocnameFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbldocname">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="16" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="DOCTOR NAME :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblbloodgroup">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="16" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="BLOOD GROUP :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtbloodgroup">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtbloodgroupFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblmedhistory">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="16" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="MEDICAL HISTORY :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtmedhistory">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtmedhistoryFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSearch">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="SEARCH"/>
       </Properties>
       <Events>
@@ -192,10 +260,16 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lbluid">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="16" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="UNIQUE ID :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtuid">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtuidFocusLost"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

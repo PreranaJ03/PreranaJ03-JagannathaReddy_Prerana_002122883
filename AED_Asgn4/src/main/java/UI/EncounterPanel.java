@@ -244,6 +244,8 @@ public class EncounterPanel extends javax.swing.JPanel {
             }
             
         }
+        
+        
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void txtsysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsysActionPerformed
@@ -252,8 +254,8 @@ public class EncounterPanel extends javax.swing.JPanel {
 
     private void txtpidFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtpidFocusLost
         // TODO add your handling code here:
-        if(!(txtpid.getText().matches("[A-Z]{1}[0-9]{3}"))){
-            JOptionPane.showMessageDialog(this, "Invalid input");
+        if(!(txtpid.getText().matches("[0-9]}"))){
+            JOptionPane.showMessageDialog(null, "Invalid input");
             txtpid.setText("");
         }
     }//GEN-LAST:event_txtpidFocusLost
@@ -261,7 +263,7 @@ public class EncounterPanel extends javax.swing.JPanel {
     private void txtbodytempFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtbodytempFocusLost
         // TODO add your handling code here:
         if(!(txtbodytemp.getText().matches("[0-9]+"))){
-            JOptionPane.showMessageDialog(this, "Invalid input");
+            JOptionPane.showMessageDialog(null, "Invalid input");
             txtbodytemp.setText("");
         }
     }//GEN-LAST:event_txtbodytempFocusLost
@@ -269,7 +271,7 @@ public class EncounterPanel extends javax.swing.JPanel {
     private void txtpulserateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtpulserateFocusLost
         // TODO add your handling code here:
         if(!(txtpulserate.getText().matches("[0-9]+"))){
-            JOptionPane.showMessageDialog(this, "Invalid input");
+            JOptionPane.showMessageDialog(null, "Invalid input");
             txtpulserate.setText("");
         }
     }//GEN-LAST:event_txtpulserateFocusLost
@@ -277,7 +279,7 @@ public class EncounterPanel extends javax.swing.JPanel {
     private void txtresprateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtresprateFocusLost
         // TODO add your handling code here:
         if(!(txtresprate.getText().matches("[0-9]+"))){
-            JOptionPane.showMessageDialog(this, "Invalid input");
+            JOptionPane.showMessageDialog(null, "Invalid input");
             txtresprate.setText("");
         }
     }//GEN-LAST:event_txtresprateFocusLost
@@ -285,7 +287,7 @@ public class EncounterPanel extends javax.swing.JPanel {
     private void txtsysFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtsysFocusLost
         // TODO add your handling code here:
         if(!(txtsys.getText().matches("[0-9]+"))){
-            JOptionPane.showMessageDialog(this, "Invalid input");
+            JOptionPane.showMessageDialog(null, "Invalid input");
             txtsys.setText("");
         }
     }//GEN-LAST:event_txtsysFocusLost
@@ -293,7 +295,7 @@ public class EncounterPanel extends javax.swing.JPanel {
     private void txtdiaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtdiaFocusLost
         // TODO add your handling code here:
         if(!(txtdia.getText().matches("[0-9]+"))){
-            JOptionPane.showMessageDialog(this, "Invalid input");
+            JOptionPane.showMessageDialog(null, "Invalid input");
             txtdia.setText("");
         }
     }//GEN-LAST:event_txtdiaFocusLost

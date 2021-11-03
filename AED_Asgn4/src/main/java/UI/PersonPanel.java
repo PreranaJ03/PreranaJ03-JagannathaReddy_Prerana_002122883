@@ -119,6 +119,11 @@ public class PersonPanel extends javax.swing.JPanel {
                 txtcommunityFocusLost(evt);
             }
         });
+        txtcommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcommunityActionPerformed(evt);
+            }
+        });
 
         btnAdd.setBackground(new java.awt.Color(0, 0, 0));
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
@@ -297,6 +302,16 @@ public class PersonPanel extends javax.swing.JPanel {
         Person p = new Person(txtUniqueID.getText(), txtName.getText(),Integer.parseInt(txtAge.getText()), txtEmail_ID.getText(), h);
         sys.getPersondir().getListofpersons().add(p);
         
+        JOptionPane.showMessageDialog(null, "The person's details were added");
+        txtUniqueID.setText("");
+        txtName.setText("");
+        txtAge.setText("");
+        txtEmail_ID.setText("");
+        txtHome.setText("");
+        txtCity.setText("");
+        txtcommunity.setText("");
+        
+        
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -306,8 +321,18 @@ public class PersonPanel extends javax.swing.JPanel {
         sys.getPersondir().getListofpersons().remove(p);
         btnAdd.doClick();
         break;
+        
+        
     }//GEN-LAST:event_btnUpdateActionPerformed
         }
+        JOptionPane.showMessageDialog(null, "The person's details were updated");
+        txtUniqueID.setText("");
+        txtName.setText("");
+        txtAge.setText("");
+        txtEmail_ID.setText("");
+        txtHome.setText("");
+        txtCity.setText("");
+        txtcommunity.setText("");
     }
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
@@ -317,8 +342,14 @@ public class PersonPanel extends javax.swing.JPanel {
         break;
     }
 }
-//
-//}
+        JOptionPane.showMessageDialog(null, "The person's details were deleted");
+        txtUniqueID.setText("");
+        txtName.setText("");
+        txtAge.setText("");
+        txtEmail_ID.setText("");
+        txtHome.setText("");
+        txtCity.setText("");
+        txtcommunity.setText("");
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -366,9 +397,9 @@ public class PersonPanel extends javax.swing.JPanel {
 
     private void txtAgeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAgeFocusLost
         // TODO add your handling code here:
-        if(!(txtsearch.getText().matches("[0-9]+"))){
+        if(!(txtAge.getText().matches("[0-9]+"))){
             JOptionPane.showMessageDialog(null, "Invalid input");
-            txtsearch.setText("");
+            txtAge.setText("");
         }
     }//GEN-LAST:event_txtAgeFocusLost
 
@@ -398,11 +429,15 @@ public class PersonPanel extends javax.swing.JPanel {
 
     private void txtcommunityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtcommunityFocusLost
         // TODO add your handling code here:
-        if(!(txtcommunity.getText().matches("[Downtown],[Roxbury],[Boylston]"))) {
-           JOptionPane.showMessageDialog(null, "Invalid Input.");
-           txtcommunity.setText("");
-       }
+//        if(!(txtcommunity.getText().matches("[Downtown],[Roxbury],[Boylston]"))) {
+//           JOptionPane.showMessageDialog(null, "Invalid Input.");
+//           txtcommunity.setText("");
+//       }
     }//GEN-LAST:event_txtcommunityFocusLost
+
+    private void txtcommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcommunityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcommunityActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

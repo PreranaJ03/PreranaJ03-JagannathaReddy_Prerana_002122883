@@ -173,7 +173,7 @@ public class Display extends javax.swing.JPanel {
             jTable1.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        combocommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Community", "Downtown", "Boylston", "Roxbury" }));
+        combocommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Community", "Downtown", "Boylston", "Roxbury" }));
 
         btnSearch.setBackground(new java.awt.Color(0, 0, 0));
         btnSearch.setForeground(new java.awt.Color(255, 255, 255));
@@ -190,6 +190,12 @@ public class Display extends javax.swing.JPanel {
         lblpname.setText("Patient Name :");
 
         lblcount.setText("COUNT :");
+
+        txtcount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcountActionPerformed(evt);
+            }
+        });
 
         lblbloodgroup.setText("Blood Group :");
 
@@ -377,6 +383,10 @@ public class Display extends javax.swing.JPanel {
         
             
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void txtcountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcountActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcountActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

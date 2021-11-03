@@ -259,9 +259,12 @@ public class PatientPanel extends javax.swing.JPanel {
             }
         }
         
+        
+        
         if(flag == 1){
             sys.getPatientdir().getListofpatients().add(new Patient(txtuid.getText(),txtpname.getText(),Integer.parseInt(txtpid.getText()),txtdocname.getText(), txtbloodgroup.getText(), txtmedhistory.getText()));
         }
+        
 
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -269,6 +272,8 @@ public class PatientPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         btnDelete.doClick();
         btnAdd.doClick();
+        
+        
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -280,6 +285,7 @@ public class PatientPanel extends javax.swing.JPanel {
                 break;
             }
         }
+        
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -327,7 +333,7 @@ public class PatientPanel extends javax.swing.JPanel {
     private void txtpidFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtpidFocusLost
         // TODO add your handling code here:
         if(!(txtpid.getText().matches("[A-Z]{1}[0-9]{3}"))){
-            JOptionPane.showMessageDialog(this, "Invalid input");
+            JOptionPane.showMessageDialog(null, "Invalid input");
             txtpid.setText("");
         }
     }//GEN-LAST:event_txtpidFocusLost
@@ -344,8 +350,8 @@ public class PatientPanel extends javax.swing.JPanel {
 
     private void txtbloodgroupFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtbloodgroupFocusLost
         // TODO add your handling code here:
-        if(!(txtbloodgroup.getText().matches("[A],[B],[AB],[O]"))){
-            JOptionPane.showMessageDialog(this, "Invalid input");
+        if(!(txtbloodgroup.getText().matches("[A-Z]+"))){
+            JOptionPane.showMessageDialog(null, "Invalid input");
             txtbloodgroup.setText("");
         }
     }//GEN-LAST:event_txtbloodgroupFocusLost
@@ -353,7 +359,7 @@ public class PatientPanel extends javax.swing.JPanel {
     private void txtmedhistoryFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtmedhistoryFocusLost
         // TODO add your handling code here:
         if(!(txtmedhistory.getText().matches("[Yes],[No]"))){
-            JOptionPane.showMessageDialog(this, "Invalid input");
+            JOptionPane.showMessageDialog(null, "Invalid input");
             txtmedhistory.setText("");
         }
         

@@ -202,7 +202,7 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
-            <StringItem index="0" value="Community"/>
+            <StringItem index="0" value="Choose Community"/>
             <StringItem index="1" value="Downtown"/>
             <StringItem index="2" value="Boylston"/>
             <StringItem index="3" value="Roxbury"/>
@@ -246,6 +246,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtcount">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtcountActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblbloodgroup">
       <Properties>

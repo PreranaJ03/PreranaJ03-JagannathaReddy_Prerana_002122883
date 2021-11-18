@@ -254,7 +254,7 @@ public class EncounterPanel extends javax.swing.JPanel {
 
     private void txtpidFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtpidFocusLost
         // TODO add your handling code here:
-        if(!(txtpid.getText().matches("[0-9]}"))){
+        if(!(txtpid.getText().matches("[0-9]"))){
             JOptionPane.showMessageDialog(null, "Invalid input");
             txtpid.setText("");
         }

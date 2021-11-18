@@ -1,18 +1,17 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package Business;
-
 import Business.Employee.EmployeeDirectory;
 import Business.Role.Role;
 import Business.UserAccount.UserAccountDirectory;
 import Business.WorkQueue.WorkQueue;
 import java.util.ArrayList;
-
 /**
  *
- * @author raunak
+ * @author Admin
  */
 public abstract class Organization {
 
@@ -28,7 +27,6 @@ public abstract class Organization {
         Customer("Customer"),
         DeliveryMan("Delivery"),
         SysAdmin("Sysadmin");
-        
         private String value;
         private Type(String value) {
             this.value = value;
@@ -46,9 +44,12 @@ public abstract class Organization {
         organizationID = counter;
         ++counter;
     }
+    
+   
     public Organization(){
         
     }
+    
     public abstract ArrayList<Role> getSupportedRole();
     
     public UserAccountDirectory getUserAccountDirectory() {
@@ -83,6 +84,4 @@ public abstract class Organization {
     public String toString() {
         return name;
     }
-    
-    
 }

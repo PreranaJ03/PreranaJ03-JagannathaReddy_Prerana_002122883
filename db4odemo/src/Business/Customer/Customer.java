@@ -5,13 +5,13 @@
  */
 package Business.Customer;
 
-import java.util.ArrayList;
 import Business.Order.Order;
 import Business.Restaurant.Dishes;
+import java.util.ArrayList;
 
 /**
  *
- * @author harold
+ * @author Admin
  */
 public class Customer {
     private String name;
@@ -19,11 +19,7 @@ public class Customer {
     private ArrayList<Order> orderList;
     private String address;
     private String number;
-
-    Customer(String username) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+    
     public String getName() {
         return name;
     }
@@ -38,6 +34,12 @@ public class Customer {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+    
+    
+    public Customer(String userName){
+        this.userName = userName;
+        orderList=new ArrayList<Order>();
     }
 
     public ArrayList<Order> getOrderList() {
@@ -78,5 +80,4 @@ public class Customer {
         orderList.add(order);
         id++;
     }
-    
 }

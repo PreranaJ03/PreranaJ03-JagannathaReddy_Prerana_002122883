@@ -13,7 +13,6 @@ import java.util.ArrayList;
  * @author harold
  */
 public class Restaurant {
-    
     private String name;
     private String userName;
     private String address;
@@ -21,6 +20,12 @@ public class Restaurant {
     private ArrayList<Dishes> Menu;
     private ArrayList<Order> orderList;
 
+     public Restaurant(String userName){
+        this.userName = userName;
+        Menu = new ArrayList<Dishes>();
+        orderList=new ArrayList<Order>();
+    }
+    
     public String getName() {
         return name;
     }
@@ -60,6 +65,14 @@ public class Restaurant {
     public void setMenu(ArrayList<Dishes> Menu) {
         this.Menu = Menu;
     }
+    
+    public void addFoodItem(Dishes menu){
+        Menu.add(menu);
+    }
+    
+    public void removeFoodItem(Dishes menu){
+         Menu.remove(menu);
+    }
 
     public ArrayList<Order> getOrderList() {
         return orderList;
@@ -69,13 +82,7 @@ public class Restaurant {
         this.orderList = orderList;
     }
     
-    public Restaurant(String userName){
-        this.userName = userName;
-        Menu = new ArrayList<Dishes>();
-        orderList=new ArrayList<Order>();
-    }
-    
-    int id = 1;
+        int id = 1;
         public void addOrder(String restaurentName, String customerName, String deliverMan, ArrayList<Dishes> Order, String price, String deliveryAddress) {
         Order order=new Order();
         order.setOrderId(String.valueOf(id));
@@ -89,9 +96,9 @@ public class Restaurant {
         orderList.add(order);
         id++;
     }
-        
-         @Override
-        public String toString() {
+    
+    @Override
+    public String toString() {
         return name;
     }
     

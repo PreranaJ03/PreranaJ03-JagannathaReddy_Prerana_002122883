@@ -1,44 +1,79 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package userinterface.CustomerRole;
 
+import Business.Customer.Customer;
 import Business.EcoSystem;
+import Business.Order.Order;
+import Business.Restaurant.Restaurant;
 
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author raunak
+ * @author Admin
  */
 public class CustomerAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
-
-    private UserAccount userAccount;
+    private EcoSystem ecosystem;
+    private UserAccount account;
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
-    public CustomerAreaJPanel(JPanel userProcessContainer, UserAccount account) {
+    public CustomerAreaJPanel(JPanel userProcessContainer, UserAccount account,EcoSystem ecosystem) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
-      
-        this.userAccount = account;
+        this.ecosystem = ecosystem;
+        this.account = account;
         //valueLabel.setText(enterprise.getName());
         populateRequestTable();
+        populatePreviousOrderTable();
+        lblCustomerID.setText(account.getUsername());
     }
     
     public void populateRequestTable(){
+         DefaultTableModel tablemodel = (DefaultTableModel) tblRestaurant.getModel();
         
+         tablemodel.setRowCount(0);
+         
+       
+                Object[] row = new Object[3];
+                //System.out.println();
+                for(Restaurant restro:ecosystem.getRestaurantDirectory().getRestaurantDirectory()){
+                     row[0] = restro;
+                     //System.out.println(restro.getAdminUName());
+                     row[1] = restro.getAddress();
+                     row[2] = restro.getNumber();
+                     tablemodel.addRow(row);
+                }
     }
 
-    
+    public void populatePreviousOrderTable(){
+        DefaultTableModel tablemodel = (DefaultTableModel) tblPreviousOrders.getModel();
+        tablemodel.setRowCount(0);
+         
+        for (Customer cust:ecosystem.getCustomerDirectory().getCustomerDirectory()) {
+           if (cust.getUserName().equals(account.getUsername())) {
+               // System.out.println(restro.getOrderList());
+               for(Order menu:cust.getOrderList()){
+                Object[] row = new Object[4];
+                row[0] = menu;
+                row[1] = menu.getRestaurantName();
+                row[2] = menu.getPrice();
+                row[3] = menu.getStatus();
+                tablemodel.addRow(row);
+               }
+                
+            }
+            
+        }
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,19 +83,19 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRestaurant = new javax.swing.JTable();
         btnOrder = new javax.swing.JButton();
         refreshTestJButton = new javax.swing.JButton();
-        enterpriseLabel1 = new javax.swing.JLabel();
+        enterpriseLabel = new javax.swing.JLabel();
+        lblCustomerID = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPreviousOrders = new javax.swing.JTable();
 
-        jPanel1.setBackground(new java.awt.Color(204, 0, 0));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setBackground(new java.awt.Color(204, 0, 0));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblRestaurant.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -86,8 +121,13 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(tblRestaurant);
+        if (tblRestaurant.getColumnModel().getColumnCount() > 0) {
+            tblRestaurant.getColumnModel().getColumn(0).setResizable(false);
+            tblRestaurant.getColumnModel().getColumn(1).setResizable(false);
+            tblRestaurant.getColumnModel().getColumn(2).setResizable(false);
+        }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 118, 437, 97));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 118, 437, 97));
 
         btnOrder.setBackground(new java.awt.Color(0, 0, 0));
         btnOrder.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -98,7 +138,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 btnOrderActionPerformed(evt);
             }
         });
-        jPanel1.add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 241, -1, -1));
+        add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 241, -1, -1));
 
         refreshTestJButton.setBackground(new java.awt.Color(0, 0, 0));
         refreshTestJButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -109,19 +149,23 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 refreshTestJButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(refreshTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 241, 89, -1));
+        add(refreshTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 241, 89, -1));
 
-        enterpriseLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        enterpriseLabel1.setText("Welcome!!");
-        jPanel1.add(enterpriseLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 112, 30));
+        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel.setText("Welcome!!");
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 27, 112, 30));
+
+        lblCustomerID.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblCustomerID.setText("<value>");
+        add(lblCustomerID, new org.netbeans.lib.awtextra.AbsoluteConstraints(465, 29, 158, 26));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Restaurant");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Previous Orders");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, -1, -1));
 
         tblPreviousOrders.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -140,25 +184,14 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane2.setViewportView(tblPreviousOrders);
+        if (tblPreviousOrders.getColumnModel().getColumnCount() > 0) {
+            tblPreviousOrders.getColumnModel().getColumn(0).setResizable(false);
+            tblPreviousOrders.getColumnModel().getColumn(1).setResizable(false);
+            tblPreviousOrders.getColumnModel().getColumn(2).setResizable(false);
+            tblPreviousOrders.getColumnModel().getColumn(3).setResizable(false);
+        }
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, 438, 141));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 5, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 5, Short.MAX_VALUE))
-        );
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, 438, 141));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
@@ -167,13 +200,14 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,"Please select a row from the table to view details","Warning",JOptionPane.WARNING_MESSAGE);
         }
         else{
-            Restaurant restaurant = (Restaurant)tblRestaurant.getValueAt(selectedRow, 0);
-
-            MenuPanel manageMenuPanel=new MenuPanel(userProcessContainer,account,ecosystem,restaurant);
-            userProcessContainer.add("MenuPanel",manageMenuPanel);
-            CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-            layout.next(userProcessContainer);
-        }
+           Restaurant restaurant = (Restaurant)tblRestaurant.getValueAt(selectedRow, 0);
+            
+                
+                 MenuPanel manageMenuPanel=new MenuPanel(userProcessContainer,account,ecosystem,restaurant);
+                 userProcessContainer.add("MenuPanel",manageMenuPanel);
+                 CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+                 layout.next(userProcessContainer);
+        } 
     }//GEN-LAST:event_btnOrderActionPerformed
 
     private void refreshTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTestJButtonActionPerformed
@@ -184,12 +218,12 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnOrder;
-    private javax.swing.JLabel enterpriseLabel1;
+    private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblCustomerID;
     private javax.swing.JButton refreshTestJButton;
     private javax.swing.JTable tblPreviousOrders;
     private javax.swing.JTable tblRestaurant;

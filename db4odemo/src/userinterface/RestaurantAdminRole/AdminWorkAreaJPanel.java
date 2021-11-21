@@ -39,9 +39,6 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         btnManageOrder = new javax.swing.JButton();
         enterpriseLabel = new javax.swing.JLabel();
         lblRestName = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 0, 0));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -90,15 +87,6 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         lblRestName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblRestName.setText("<value>");
         add(lblRestName, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 170, 35));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/RestaurantAdminRole/Manage Orders.png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 190, 200, 180));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/RestaurantAdminRole/noun_food menu_1294178 (1).png"))); // NOI18N
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 200, 180));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/RestaurantAdminRole/noun_manage files_2661829 (1).png"))); // NOI18N
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 200, 200, 180));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageRestroInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRestroInfoActionPerformed
@@ -130,9 +118,6 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnManageRestroInfo;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblRestName;
     // End of variables declaration//GEN-END:variables
     

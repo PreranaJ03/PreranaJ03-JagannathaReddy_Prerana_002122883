@@ -5,9 +5,15 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.Customer.Customer;
+import Business.Customer.CustomerDirectory;
+import Business.DeliveryMan.DeliveryMan;
+import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 
 import Business.Organization;
+import Business.Restaurant.Restaurant;
+import Business.Restaurant.RestaurantDirectory;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.JPanel;
@@ -35,7 +41,52 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     public void populateTree(){
         DefaultTreeModel model=(DefaultTreeModel)jTree.getModel();
        // Add the code for draw your system structure shown by JTree
-       
+       DefaultMutableTreeNode root=(DefaultMutableTreeNode)model.getRoot();
+root.removeAllChildren();
+
+
+
+//Adding Restaurants
+RestaurantDirectory restDir = ecosystem.getRestaurantDirectory();
+DefaultMutableTreeNode rests = new DefaultMutableTreeNode("Restaurant");
+root.insert(rests, 0);
+
+
+
+DefaultMutableTreeNode restVal;
+int count = 0;
+for(Restaurant c : restDir.getRestaurantDirectory()){
+restVal = new DefaultMutableTreeNode(c.getUserName());
+rests.insert(restVal, count);
+count++;
+}
+
+
+//Adding customers
+CustomerDirectory custDir = ecosystem.getCustomerDirectory();
+DefaultMutableTreeNode customers = new DefaultMutableTreeNode("Customer");
+root.insert(customers, 1);
+
+DefaultMutableTreeNode custVal;
+count = 0;
+for(Customer c : custDir.getCustomerDirectory()){
+custVal = new DefaultMutableTreeNode(c.getUserName());
+customers.insert(custVal, count);
+count++;
+}
+
+
+//Adding Delivery men
+DeliveryManDirectory delDir = ecosystem.getDeliveryManDirectory();
+DefaultMutableTreeNode delMen = new DefaultMutableTreeNode("Delivery Partner");
+root.insert(delMen, 2);
+DefaultMutableTreeNode delVal;
+count = 0;
+for(DeliveryMan c : delDir.getDeliveryManDirectory()){
+delVal = new DefaultMutableTreeNode(c.getUserName());
+delMen.insert(delVal, count);
+count++;
+}
         model.reload();
     }
     /**

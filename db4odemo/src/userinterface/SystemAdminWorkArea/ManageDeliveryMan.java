@@ -6,6 +6,7 @@
 package userinterface.SystemAdminWorkArea;
 
 import Business.Customer.Customer;
+import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 import Business.Role.CustomerRole;
 import Business.Role.DeliverManRole;
@@ -168,6 +169,11 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(txtUserName.getText())){
         UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(txtName.getText(), txtUserName.getText(), txtPassword.getText(), null, new DeliverManRole());
+        if(ecosystem.getDeliveryManDirectory() == null){
+ecosystem.setDeliveryManDirectory(new DeliveryManDirectory());
+}
+ecosystem.getDeliveryManDirectory().createUserAccount(txtUserName.getText());
+        
         populateDeliveryManTable();
         txtName.setText("");
         txtUserName.setText("");

@@ -51,8 +51,7 @@ public class ManageOrders extends javax.swing.JPanel {
                 row[0] = order;
                 row[1] = order.getCustomerName();
                 row[2] = order.getDeliveryAddress();
-                row[3] = order.getPrice();
-                row[4] = order.getStatus();
+                row[3] = order.getStatus();
                 tablemodel.addRow(row);
                }
                 

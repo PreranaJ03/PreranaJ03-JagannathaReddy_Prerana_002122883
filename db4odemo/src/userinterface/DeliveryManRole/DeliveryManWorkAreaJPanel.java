@@ -4,9 +4,9 @@
  */
 package userinterface.DeliveryManRole;
 
+import Business.DeliveryMan.DeliveryMan;
 import Business.EcoSystem;
 import Business.Order.Order;
-
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author raunak
+ * @author Admin
  */
 public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 
@@ -23,23 +23,38 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
     private EcoSystem business;
     private UserAccount userAccount;
     
-    
-    /**
-     * Creates new form LabAssistantWorkAreaJPanel
-     */
     public DeliveryManWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
         this.business = business;
-      
-        
         populateTable();
     }
     
     public void populateTable(){
+        DefaultTableModel tablemodel = (DefaultTableModel) tblOrderDetails.getModel();
         
+        tablemodel.setRowCount(0);
+        
+        for(DeliveryMan deliveryMan : business.getDeliveryManDirectory().getDeliveryManDirectory()){
+            if(deliveryMan.getUserName().equals(userAccount.getUsername())){
+                    
+                for(Order order : deliveryMan.getOrderList()){
+                Object[] row = new Object[6];
+                row[2] = order.getCustomerName();
+                row[1] = order.getRestaurantName();
+               
+                row[4] = order.getPrice();
+                row[5] = order.getStatus();
+                row[0] = order;
+                row[3] = order.getDeliveryAddress();
+                tablemodel.addRow(row);
+                    
+                }
+            }
+            
+        }
     }
 
     /**
@@ -51,17 +66,14 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblOrderDetails = new javax.swing.JTable();
         processJButton = new javax.swing.JButton();
         refreshJButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 0, 0));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Order Detail");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, -1, -1));
 
         tblOrderDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -87,6 +99,14 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(tblOrderDetails);
+        if (tblOrderDetails.getColumnModel().getColumnCount() > 0) {
+            tblOrderDetails.getColumnModel().getColumn(0).setResizable(false);
+            tblOrderDetails.getColumnModel().getColumn(1).setResizable(false);
+            tblOrderDetails.getColumnModel().getColumn(2).setResizable(false);
+            tblOrderDetails.getColumnModel().getColumn(3).setResizable(false);
+            tblOrderDetails.getColumnModel().getColumn(4).setResizable(false);
+            tblOrderDetails.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 650, 96));
 
@@ -111,21 +131,26 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("Order Detail");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
         int selectedRow = tblOrderDetails.getSelectedRow();
-
+        
         if (selectedRow < 0){
             return;
         }
-
-        Order order = (Order)tblOrderDetails.getValueAt(selectedRow, 0);
+        
+        Order order = (Order)tblOrderDetails.getValueAt(selectedRow, 0); 
         ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, order);
         userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
 
+        
     }//GEN-LAST:event_processJButtonActionPerformed
 
     private void refreshJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshJButtonActionPerformed

@@ -93,10 +93,15 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPreviousOrders = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 0, 0));
+        setBackground(new java.awt.Color(0, 0, 0));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblRestaurant.setBackground(new java.awt.Color(204, 204, 204));
         tblRestaurant.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -127,46 +132,49 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
             tblRestaurant.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 118, 437, 97));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 437, 97));
 
-        btnOrder.setBackground(new java.awt.Color(0, 0, 0));
+        btnOrder.setBackground(new java.awt.Color(255, 255, 255));
         btnOrder.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnOrder.setForeground(new java.awt.Color(255, 255, 255));
         btnOrder.setText("Place Order");
         btnOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOrderActionPerformed(evt);
             }
         });
-        add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 241, -1, -1));
+        add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
 
-        refreshTestJButton.setBackground(new java.awt.Color(0, 0, 0));
+        refreshTestJButton.setBackground(new java.awt.Color(255, 255, 255));
         refreshTestJButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        refreshTestJButton.setForeground(new java.awt.Color(255, 255, 255));
         refreshTestJButton.setText("Refresh");
         refreshTestJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshTestJButtonActionPerformed(evt);
             }
         });
-        add(refreshTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 241, 89, -1));
+        add(refreshTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, 89, -1));
 
-        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        enterpriseLabel.setText("Welcome!!");
+        enterpriseLabel.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
+        enterpriseLabel.setForeground(new java.awt.Color(255, 255, 255));
+        enterpriseLabel.setText("Helloo");
         add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 27, 112, 30));
 
-        lblCustomerID.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblCustomerID.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
+        lblCustomerID.setForeground(new java.awt.Color(255, 255, 255));
         lblCustomerID.setText("<value>");
-        add(lblCustomerID, new org.netbeans.lib.awtextra.AbsoluteConstraints(465, 29, 158, 26));
+        add(lblCustomerID, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 158, 26));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Restaurant");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Choose your Restaurant!");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setText("Previous Orders");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Your previous orders! :D");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, -1, -1));
 
+        tblPreviousOrders.setBackground(new java.awt.Color(204, 204, 204));
         tblPreviousOrders.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -191,7 +199,19 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
             tblPreviousOrders.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, 438, 141));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, 438, 141));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\prerana\\Desktop\\customer 1.jfif")); // NOI18N
+        jLabel3.setText("jLabel3");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, 320, 240));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\prerana\\Desktop\\cust 3.jfif")); // NOI18N
+        jLabel4.setText("jLabel4");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 290, 280, 180));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\prerana\\Desktop\\cust 4.jfif")); // NOI18N
+        jLabel5.setText("jLabel5");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 500, 240, 230));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
@@ -221,6 +241,9 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblCustomerID;

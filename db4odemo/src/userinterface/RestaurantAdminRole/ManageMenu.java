@@ -82,6 +82,7 @@ public class ManageMenu extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblMenuCatalogue = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -96,47 +97,57 @@ public class ManageMenu extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        setBackground(new java.awt.Color(204, 0, 0));
+        setBackground(new java.awt.Color(0, 0, 0));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Food Name:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 204, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Food Description:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 204, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Price:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(712, 204, -1, -1));
-        add(txtFoodName, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 202, 107, -1));
-        add(txtFoodDescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(522, 202, 107, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 100, -1));
 
+        txtFoodName.setFont(new java.awt.Font("Sylfaen", 0, 18)); // NOI18N
+        add(txtFoodName, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 140, -1));
+
+        txtFoodDescription.setFont(new java.awt.Font("Sylfaen", 0, 18)); // NOI18N
+        add(txtFoodDescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 140, -1));
+
+        txtPrice.setFont(new java.awt.Font("Sylfaen", 0, 18)); // NOI18N
         txtPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPriceActionPerformed(evt);
             }
         });
-        add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 202, 107, -1));
+        add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, 140, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel4.setText("Menu Archive");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 45, 147, -1));
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel4.setFont(new java.awt.Font("Sylfaen", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Add Menu Details");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 45, 200, -1));
 
-        btnAddFoodItem.setBackground(new java.awt.Color(0, 0, 0));
-        btnAddFoodItem.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnAddFoodItem.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddFoodItem.setBackground(new java.awt.Color(255, 255, 255));
+        btnAddFoodItem.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         btnAddFoodItem.setText("Add Food Item");
         btnAddFoodItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddFoodItemActionPerformed(evt);
             }
         });
-        add(btnAddFoodItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(438, 273, -1, -1));
+        add(btnAddFoodItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, -1, -1));
 
-        btnBack.setBackground(new java.awt.Color(0, 0, 0));
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,6 +156,7 @@ public class ManageMenu extends javax.swing.JPanel {
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
+        tblMenuCatalogue.setBackground(new java.awt.Color(204, 204, 204));
         tblMenuCatalogue.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -168,18 +180,21 @@ public class ManageMenu extends javax.swing.JPanel {
             tblMenuCatalogue.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 346, 375, 112));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, 480, 150));
 
-        btnDelete.setBackground(new java.awt.Color(0, 0, 0));
-        btnDelete.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setBackground(new java.awt.Color(255, 255, 255));
+        btnDelete.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(464, 476, -1, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 550, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\prerana\\Desktop\\managemenu.jfif")); // NOI18N
+        jLabel5.setText("jLabel5");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 40, 220, 180));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
@@ -236,6 +251,7 @@ public class ManageMenu extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;

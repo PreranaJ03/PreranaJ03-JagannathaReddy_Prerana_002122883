@@ -56,10 +56,14 @@ public class DeliveryManAssignment extends javax.swing.JPanel {
         tblDeliveryMan = new javax.swing.JTable();
         btnBack = new javax.swing.JButton();
         btnOrderAssignment = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 0, 0));
+        setBackground(new java.awt.Color(0, 0, 0));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblDeliveryMan.setBackground(new java.awt.Color(204, 204, 204));
+        tblDeliveryMan.setFont(new java.awt.Font("Sylfaen", 0, 16)); // NOI18N
         tblDeliveryMan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -83,8 +87,8 @@ public class DeliveryManAssignment extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 135, 577, 100));
 
-        btnBack.setBackground(new java.awt.Color(0, 0, 0));
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,16 +97,19 @@ public class DeliveryManAssignment extends javax.swing.JPanel {
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
-        btnOrderAssignment.setBackground(new java.awt.Color(0, 0, 0));
-        btnOrderAssignment.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnOrderAssignment.setForeground(new java.awt.Color(255, 255, 255));
+        btnOrderAssignment.setBackground(new java.awt.Color(255, 255, 255));
+        btnOrderAssignment.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         btnOrderAssignment.setText("Assign Order");
         btnOrderAssignment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOrderAssignmentActionPerformed(evt);
             }
         });
-        add(btnOrderAssignment, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 293, 110, 35));
+        add(btnOrderAssignment, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 190, 35));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\prerana\\Desktop\\delivaryy.jfif")); // NOI18N
+        jLabel1.setText("jLabel1");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, 280, 210));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOrderAssignmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderAssignmentActionPerformed
@@ -131,6 +138,7 @@ public class DeliveryManAssignment extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnOrderAssignment;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblDeliveryMan;
     // End of variables declaration//GEN-END:variables

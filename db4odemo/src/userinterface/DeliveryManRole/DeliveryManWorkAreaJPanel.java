@@ -71,10 +71,16 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         processJButton = new javax.swing.JButton();
         refreshJButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 0, 0));
+        setBackground(new java.awt.Color(0, 0, 0));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblOrderDetails.setBackground(new java.awt.Color(204, 204, 204));
+        tblOrderDetails.setFont(new java.awt.Font("Sylfaen", 0, 16)); // NOI18N
         tblOrderDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -108,33 +114,44 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
             tblOrderDetails.getColumnModel().getColumn(5).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 650, 96));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 650, 160));
 
-        processJButton.setBackground(new java.awt.Color(0, 0, 0));
-        processJButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        processJButton.setForeground(new java.awt.Color(255, 255, 255));
+        processJButton.setBackground(new java.awt.Color(255, 255, 255));
+        processJButton.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         processJButton.setText("Process");
         processJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 processJButtonActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 340, -1, -1));
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 390, -1, -1));
 
-        refreshJButton.setBackground(new java.awt.Color(0, 0, 0));
-        refreshJButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        refreshJButton.setForeground(new java.awt.Color(255, 255, 255));
+        refreshJButton.setBackground(new java.awt.Color(255, 255, 255));
+        refreshJButton.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         refreshJButton.setText("Refresh");
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshJButtonActionPerformed(evt);
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, -1, -1));
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Order Detail");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Sylfaen", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Your Order Details");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\prerana\\Desktop\\order 1.png")); // NOI18N
+        jLabel2.setText("jLabel2");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, 220, 140));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\prerana\\Desktop\\order 4.jfif")); // NOI18N
+        jLabel4.setText("jLabel3");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 270, 320));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\prerana\\Desktop\\order 3.jfif")); // NOI18N
+        jLabel5.setText("jLabel3");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 440, 230, 330));
     }// </editor-fold>//GEN-END:initComponents
 
     private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
@@ -159,6 +176,9 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton processJButton;
     private javax.swing.JButton refreshJButton;

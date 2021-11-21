@@ -75,9 +75,11 @@ public class ManageOrders extends javax.swing.JPanel {
         btnViewOrder = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 0, 0));
+        setBackground(new java.awt.Color(0, 0, 0));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblOrderDetail.setBackground(new java.awt.Color(204, 204, 204));
+        tblOrderDetail.setFont(new java.awt.Font("Sylfaen", 0, 18)); // NOI18N
         tblOrderDetail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -104,8 +106,8 @@ public class ManageOrders extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 125, 980, 165));
 
-        btnBack.setBackground(new java.awt.Color(0, 0, 0));
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,20 +116,18 @@ public class ManageOrders extends javax.swing.JPanel {
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
-        btnAssignDeliveryMan.setBackground(new java.awt.Color(0, 0, 0));
-        btnAssignDeliveryMan.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnAssignDeliveryMan.setForeground(new java.awt.Color(255, 255, 255));
+        btnAssignDeliveryMan.setBackground(new java.awt.Color(255, 255, 255));
+        btnAssignDeliveryMan.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         btnAssignDeliveryMan.setText("Assign Delivery Man ");
         btnAssignDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssignDeliveryManActionPerformed(evt);
             }
         });
-        add(btnAssignDeliveryMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 317, -1, -1));
+        add(btnAssignDeliveryMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 330, -1, -1));
 
-        btnViewOrder.setBackground(new java.awt.Color(0, 0, 0));
-        btnViewOrder.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnViewOrder.setForeground(new java.awt.Color(255, 255, 255));
+        btnViewOrder.setBackground(new java.awt.Color(255, 255, 255));
+        btnViewOrder.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         btnViewOrder.setText("View Order");
         btnViewOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,16 +136,15 @@ public class ManageOrders extends javax.swing.JPanel {
         });
         add(btnViewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 317, -1, -1));
 
-        btnRefresh.setBackground(new java.awt.Color(0, 0, 0));
-        btnRefresh.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
+        btnRefresh.setBackground(new java.awt.Color(255, 255, 255));
+        btnRefresh.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRefreshActionPerformed(evt);
             }
         });
-        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 317, -1, -1));
+        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAssignDeliveryManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignDeliveryManActionPerformed

@@ -39,54 +39,70 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         btnManageOrder = new javax.swing.JButton();
         enterpriseLabel = new javax.swing.JLabel();
         lblRestName = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 0, 0));
+        setBackground(new java.awt.Color(0, 0, 0));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Restaurant Admin Mode");
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Sylfaen", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Restaurant Admin ");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, -1, -1));
 
-        btnManageRestroInfo.setBackground(new java.awt.Color(0, 0, 0));
-        btnManageRestroInfo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnManageRestroInfo.setForeground(new java.awt.Color(255, 255, 255));
+        btnManageRestroInfo.setBackground(new java.awt.Color(255, 255, 255));
+        btnManageRestroInfo.setFont(new java.awt.Font("Sylfaen", 1, 12)); // NOI18N
         btnManageRestroInfo.setText("Manage Restaurant Information");
         btnManageRestroInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageRestroInfoActionPerformed(evt);
             }
         });
-        add(btnManageRestroInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 390, 250, 35));
+        add(btnManageRestroInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 220, 250, 35));
 
-        btnManageMenu.setBackground(new java.awt.Color(0, 0, 0));
-        btnManageMenu.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnManageMenu.setForeground(new java.awt.Color(255, 255, 255));
+        btnManageMenu.setBackground(new java.awt.Color(255, 255, 255));
+        btnManageMenu.setFont(new java.awt.Font("Sylfaen", 1, 12)); // NOI18N
         btnManageMenu.setText("Manage Menu");
         btnManageMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageMenuActionPerformed(evt);
             }
         });
-        add(btnManageMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, 250, 35));
+        add(btnManageMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 250, 35));
 
-        btnManageOrder.setBackground(new java.awt.Color(0, 0, 0));
-        btnManageOrder.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnManageOrder.setForeground(new java.awt.Color(255, 255, 255));
+        btnManageOrder.setBackground(new java.awt.Color(255, 255, 255));
+        btnManageOrder.setFont(new java.awt.Font("Sylfaen", 1, 12)); // NOI18N
         btnManageOrder.setText("Manage Orders");
         btnManageOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageOrderActionPerformed(evt);
             }
         });
-        add(btnManageOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 250, 35));
+        add(btnManageOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 250, 35));
 
-        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
+        enterpriseLabel.setForeground(new java.awt.Color(255, 255, 255));
         enterpriseLabel.setText("Restaurant :");
         add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 150, 35));
 
-        lblRestName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblRestName.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
+        lblRestName.setForeground(new java.awt.Color(255, 255, 255));
         lblRestName.setText("<value>");
         add(lblRestName, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 170, 35));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\prerana\\Desktop\\rest 1.jfif")); // NOI18N
+        jLabel2.setText("jLabel2");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 320, 190, 180));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\prerana\\Desktop\\manageorder.png")); // NOI18N
+        jLabel3.setText("jLabel2");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 200, 170));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\prerana\\Desktop\\menuuu.png")); // NOI18N
+        jLabel4.setText("jLabel2");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, 190, 180));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageRestroInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRestroInfoActionPerformed
@@ -118,6 +134,9 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnManageRestroInfo;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblRestName;
     // End of variables declaration//GEN-END:variables
     

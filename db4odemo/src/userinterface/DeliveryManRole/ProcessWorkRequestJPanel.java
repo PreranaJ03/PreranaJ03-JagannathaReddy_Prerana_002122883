@@ -37,35 +37,43 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         txtStatus = new javax.swing.JTextField();
         backJButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 0, 0));
+        setBackground(new java.awt.Color(0, 0, 0));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        submitJButton.setBackground(new java.awt.Color(0, 0, 0));
-        submitJButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        submitJButton.setForeground(new java.awt.Color(255, 255, 255));
+        submitJButton.setBackground(new java.awt.Color(255, 255, 255));
+        submitJButton.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         submitJButton.setText("Update Delivery Status");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitJButtonActionPerformed(evt);
             }
         });
-        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 200, 30));
+        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 240, 30));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Delivery Status");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 150, 30));
-        add(txtStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(508, 200, 190, 30));
 
-        backJButton.setBackground(new java.awt.Color(0, 0, 0));
-        backJButton.setForeground(new java.awt.Color(255, 255, 255));
+        txtStatus.setFont(new java.awt.Font("Sylfaen", 0, 18)); // NOI18N
+        add(txtStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, 190, 30));
+
+        backJButton.setBackground(new java.awt.Color(255, 255, 255));
+        backJButton.setFont(new java.awt.Font("Sylfaen", 0, 18)); // NOI18N
         backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 110, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\prerana\\Desktop\\delivery 2.jfif")); // NOI18N
+        jLabel2.setText("jLabel2");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, 270, 280));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -88,6 +96,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton submitJButton;
     private javax.swing.JTextField txtStatus;
     // End of variables declaration//GEN-END:variables

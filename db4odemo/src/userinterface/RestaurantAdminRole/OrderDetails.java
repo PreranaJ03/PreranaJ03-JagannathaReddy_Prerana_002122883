@@ -71,9 +71,10 @@ public class OrderDetails extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         btnStatus = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 0, 0));
+        setBackground(new java.awt.Color(0, 0, 0));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblOrderDetails.setBackground(new java.awt.Color(204, 204, 204));
         tblOrderDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -99,15 +100,15 @@ public class OrderDetails extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 239, -1, 140));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         jLabel1.setText("OrderID:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(438, 140, -1, -1));
 
         lblOrderID.setText("jLabel3");
-        add(lblOrderID, new org.netbeans.lib.awtextra.AbsoluteConstraints(549, 141, -1, -1));
+        add(lblOrderID, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 510, -1, -1));
 
-        btnBack.setBackground(new java.awt.Color(0, 0, 0));
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,9 +117,8 @@ public class OrderDetails extends javax.swing.JPanel {
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 18, -1, -1));
 
-        btnStatus.setBackground(new java.awt.Color(0, 0, 0));
-        btnStatus.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnStatus.setForeground(new java.awt.Color(255, 255, 255));
+        btnStatus.setBackground(new java.awt.Color(255, 255, 255));
+        btnStatus.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         btnStatus.setText("Change Status to Ready");
         btnStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

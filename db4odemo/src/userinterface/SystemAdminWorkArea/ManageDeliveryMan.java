@@ -79,10 +79,12 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         btnRegisterDeliveryMan = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 0, 0));
+        setBackground(new java.awt.Color(0, 0, 0));
         setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblDeliveryMan.setBackground(new java.awt.Color(204, 204, 204));
+        tblDeliveryMan.setFont(new java.awt.Font("Sylfaen", 0, 16)); // NOI18N
         tblDeliveryMan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -93,69 +95,74 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblDeliveryMan);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, -1, 123));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 240, 480, 123));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Name:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 82, 47, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 60, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("UserName:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 71, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 190, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Password:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(694, 82, -1, -1));
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 80, 144, -1));
-        add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, 144, -1));
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(767, 80, 144, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
 
-        btnUpdate.setBackground(new java.awt.Color(0, 0, 0));
-        btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        txtName.setFont(new java.awt.Font("Sylfaen", 0, 18)); // NOI18N
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 144, -1));
+
+        txtUserName.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
+        add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 144, -1));
+
+        txtPassword.setFont(new java.awt.Font("Sylfaen", 0, 18)); // NOI18N
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 144, -1));
+
+        btnUpdate.setBackground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, -1, -1));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, -1, -1));
 
-        btnDelete.setBackground(new java.awt.Color(0, 0, 0));
-        btnDelete.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setBackground(new java.awt.Color(255, 255, 255));
+        btnDelete.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 410, -1, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 400, -1, -1));
 
-        btnSave.setBackground(new java.awt.Color(0, 0, 0));
-        btnSave.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setBackground(new java.awt.Color(255, 255, 255));
+        btnSave.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
             }
         });
-        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, -1, -1));
+        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 400, -1, -1));
 
-        btnRegisterDeliveryMan.setBackground(new java.awt.Color(0, 0, 0));
-        btnRegisterDeliveryMan.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnRegisterDeliveryMan.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegisterDeliveryMan.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegisterDeliveryMan.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         btnRegisterDeliveryMan.setText("Register DeliveryMan");
         btnRegisterDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegisterDeliveryManActionPerformed(evt);
             }
         });
-        add(btnRegisterDeliveryMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, -1, -1));
+        add(btnRegisterDeliveryMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, -1, -1));
 
-        btnBack.setBackground(new java.awt.Color(0, 0, 0));
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

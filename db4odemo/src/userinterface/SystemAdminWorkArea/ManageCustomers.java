@@ -77,10 +77,12 @@ public class ManageCustomers extends javax.swing.JPanel {
         btnCreateCustomer = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 0, 0));
+        setBackground(new java.awt.Color(0, 0, 0));
         setPreferredSize(new java.awt.Dimension(1000, 900));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblCustomers.setBackground(new java.awt.Color(204, 204, 204));
+        tblCustomers.setFont(new java.awt.Font("Sylfaen", 0, 18)); // NOI18N
         tblCustomers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -91,26 +93,39 @@ public class ManageCustomers extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblCustomers);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 250, -1, 123));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 370, 540, 123));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Name:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 73, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("UserName:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 73, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Password:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(641, 73, -1, -1));
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 71, 144, -1));
-        add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(417, 71, 144, -1));
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(714, 71, 144, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, -1, -1));
 
-        btnUpdate.setBackground(new java.awt.Color(0, 0, 0));
-        btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        txtName.setFont(new java.awt.Font("Sylfaen", 0, 18)); // NOI18N
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 144, -1));
+
+        txtUserName.setFont(new java.awt.Font("Sylfaen", 0, 18)); // NOI18N
+        add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 144, -1));
+
+        txtPassword.setFont(new java.awt.Font("Sylfaen", 0, 18)); // NOI18N
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 144, -1));
+
+        btnUpdate.setBackground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.setBorder(null);
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -118,11 +133,10 @@ public class ManageCustomers extends javax.swing.JPanel {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, 60, 24));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 580, 80, 24));
 
-        btnDelete.setBackground(new java.awt.Color(0, 0, 0));
-        btnDelete.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setBackground(new java.awt.Color(255, 255, 255));
+        btnDelete.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.setBorder(null);
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -130,11 +144,10 @@ public class ManageCustomers extends javax.swing.JPanel {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, 60, 24));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 580, 80, 24));
 
-        btnSave.setBackground(new java.awt.Color(0, 0, 0));
-        btnSave.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setBackground(new java.awt.Color(255, 255, 255));
+        btnSave.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         btnSave.setText("Save");
         btnSave.setBorder(null);
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -142,11 +155,10 @@ public class ManageCustomers extends javax.swing.JPanel {
                 btnSaveActionPerformed(evt);
             }
         });
-        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 400, 60, 24));
+        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 580, 70, 24));
 
-        btnCreateCustomer.setBackground(new java.awt.Color(0, 0, 0));
-        btnCreateCustomer.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnCreateCustomer.setForeground(new java.awt.Color(255, 255, 255));
+        btnCreateCustomer.setBackground(new java.awt.Color(255, 255, 255));
+        btnCreateCustomer.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         btnCreateCustomer.setText("Create Customer");
         btnCreateCustomer.setBorder(null);
         btnCreateCustomer.addActionListener(new java.awt.event.ActionListener() {
@@ -154,11 +166,10 @@ public class ManageCustomers extends javax.swing.JPanel {
                 btnCreateCustomerActionPerformed(evt);
             }
         });
-        add(btnCreateCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(441, 158, 120, 26));
+        add(btnCreateCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 160, 26));
 
-        btnBack.setBackground(new java.awt.Color(0, 0, 0));
-        btnBack.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         btnBack.setText("<<Back");
         btnBack.setBorderPainted(false);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -249,6 +260,10 @@ public class ManageCustomers extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

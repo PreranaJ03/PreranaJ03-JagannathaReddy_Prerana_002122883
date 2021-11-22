@@ -7,10 +7,7 @@ package Business.UserAccount;
 import Business.Employee.Employee;
 import Business.Role.Role;
 
-/**
- *
- * @author Admin
- */
+
 public class UserAccount {
     private String name;
     private String username;

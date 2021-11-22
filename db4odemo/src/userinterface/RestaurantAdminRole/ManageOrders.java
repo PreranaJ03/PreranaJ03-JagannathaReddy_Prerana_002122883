@@ -47,7 +47,7 @@ public class ManageOrders extends javax.swing.JPanel {
             if (restro.getUserName().equals(account.getUsername())) {
                 //System.out.println(restro.getOrderList());
                for(Order order:restro.getOrderList()){
-                Object[] row = new Object[5];
+                Object[] row = new Object[4];
                 row[0] = order;
                 row[1] = order.getCustomerName();
                 row[2] = order.getDeliveryAddress();
